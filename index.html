@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pequeños Grandes Valores — Libros para niños con corazón</title>
+<meta name="description" content="Libros infantiles que enseñan valores, empatía y carácter. Historias para crecer bien por dentro.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pequenosgrandesvalores.com/">
+<meta property="og:title" content="Pequeños Grandes Valores — Libros para niños con corazón">
+<meta property="og:description" content="Libros infantiles que enseñan valores, empatía y carácter. Historias para crecer bien por dentro.">
+<meta property="og:image" content="https://pequenosgrandesvalores.com/logo_pgv.png">
+<meta property="og:locale" content="es_ES">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pequeños Grandes Valores — Libros para niños con corazón">
+<meta name="twitter:description" content="Libros infantiles que enseñan valores, empatía y carácter. Historias para crecer bien por dentro.">
+<meta name="twitter:image" content="https://pequenosgrandesvalores.com/logo_pgv.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #5b7bc4;
+    --azul-claro: #eef2fb;
+    --azul-medio: #d0daef;
+    --marino: #1c2b4a;
+    --crema: #faf8f3;
+    --crema-oscura: #f0ece3;
+    --texto: #2a2a2a;
+    --texto-suave: #6b6b6b;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--crema);
+    color: var(--texto);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--crema);
+    border-bottom: 1px solid var(--crema-oscura);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 36px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--azul); }
+
+  /* HERO */
+  .hero {
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    background: var(--marino);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 65% 50%, #2a4070 0%, var(--marino) 70%);
+  }
+
+  .hero-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(91,123,196,0.15) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-text {}
+
+  .hero-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--azul);
+    border: 1px solid rgba(91,123,196,0.4);
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 em {
+    color: var(--azul);
+    font-style: italic;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--azul);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: #4a67a8; }
+
+  .btn-secondary {
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    padding: 12px 28px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.25);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.5);
+    color: #fff;
+  }
+
+  .hero-logo-big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-logo-big img {
+    width: min(320px, 80%);
+    opacity: 0.92;
+    filter: brightness(1.1);
+  }
+
+  /* VALORES STRIP */
+  .valores-strip {
+    background: var(--azul);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .valor-item {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 600;
+    color: var(--marino);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--texto-suave);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  /* FEATURES */
+  .features {
+    background: #fff;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .feature-card {
+    padding: 2rem;
+    background: var(--crema);
+    border-radius: 8px;
+    border: 1px solid var(--crema-oscura);
+  }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--azul-claro);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--azul);
+  }
+
+  .feature-card h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--marino);
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+    line-height: 1.65;
+  }
+
+  /* CATÁLOGO */
+  #catalogo { background: var(--crema); }
+
+  .filtros {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .filtro-btn {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--crema-oscura);
+    background: #fff;
+    color: var(--texto-suave);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .filtro-btn.active,
+  .filtro-btn:hover {
+    background: var(--azul);
+    color: #fff;
+    border-color: var(--azul);
+  }
+
+  .libros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .libro-card {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--crema-oscura);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .libro-card:hover {
+    box-shadow: 0 4px 20px rgba(91,123,196,0.12);
+  }
+
+  .libro-tema {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--azul);
+    background: var(--azul-claro);
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .libro-titulo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--marino);
+    line-height: 1.35;
+  }
+
+  .libro-autor {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+  }
+
+  .libro-desc {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .libro-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+
+  .libro-link {
+    font-size: 0.78rem;
+    padding: 5px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+
+  .libro-link-kindle {
+    background: var(--azul);
+    color: #fff;
+  }
+
+  .libro-link-kindle:hover { background: #4a67a8; }
+
+  .libro-link-impreso {
+    background: var(--azul-claro);
+    color: var(--azul);
+    border: 1px solid var(--azul-medio);
+  }
+
+  .libro-link-impreso:hover { background: var(--azul-medio); }
+
+  /* BLOG */
+  #blog { background: #fff; }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .blog-card {
+    border-bottom: 2px solid var(--crema-oscura);
+    padding-bottom: 1.5rem;
+  }
+
+  .blog-categoria {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-card h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--marino);
+    line-height: 1.35;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-card p {
+    font-size: 0.875rem;
+    color: var(--texto-suave);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .blog-link {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--azul);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+
+  .blog-link:hover { text-decoration: underline; }
+
+  /* NOSOTROS */
+  #nosotros {
+    background: var(--marino);
+    color: #fff;
+  }
+
+  #nosotros .section-title { color: #fff; }
+  #nosotros .section-subtitle { color: rgba(255,255,255,0.6); }
+  #nosotros .section-label { color: rgba(91,123,196,0.9); }
+
+  .nosotros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .nosotros-texto p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .nosotros-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .stat-numero {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--azul);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #111820;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  footer img {
+    height: 48px;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.8;
+  }
+
+  footer a {
+    color: rgba(91,123,196,0.7);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--azul); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-logo-big { display: none; }
+    .nosotros-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .nav-links { display: none; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-text > * {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-tag { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.2s; }
+  .hero p { animation-delay: 0.3s; }
+  .hero-btns { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo_pgv.png" alt="PGV Pequeños Grandes Valores">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-tag">Libros infantiles con propósito</span>
+      <h1>Historias que forman <em>grandes</em> personas</h1>
+      <p>Libros para niños que enseñan valores, empatía y carácter. Porque los hábitos del corazón se construyen desde pequeños.</p>
+      <div class="hero-btns">
+        <a href="#catalogo" class="btn-primary">Ver catálogo</a>
+        <a href="#nosotros" class="btn-secondary">Nuestra historia</a>
+      </div>
+    </div>
+    <div class="hero-logo-big">
+      <img src="logo_pgv_dark.png" alt="PGV">
+    </div>
+  </div>
+</section>
+
+<!-- VALORES STRIP -->
+<div class="valores-strip">
+  <span class="valor-item">Empatía</span>
+  <span class="valor-item">Valentía</span>
+  <span class="valor-item">Resiliencia</span>
+  <span class="valor-item">Amistad</span>
+  <span class="valor-item">Gratitud</span>
+  <span class="valor-item">Autoestima</span>
+  <span class="valor-item">Honestidad</span>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="nosotros-breve">
+  <div class="container">
+    <div class="section-label">¿Por qué PGV?</div>
+    <h2 class="section-title">Libros que dejan huella</h2>
+    <p class="section-subtitle">Cada historia está diseñada para abrir conversaciones entre padres e hijos sobre lo que realmente importa.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        <h3>Contenido evergreen</h3>
+        <p>Historias con valores universales que no caducan. Un libro de hoy sigue siendo relevante en 10 años.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <h3>Para todas las edades</h3>
+        <p>Desde los primeros cuentos hasta libros para lectores independientes. Colecciones en español e inglés.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <h3>Disponibles en Amazon</h3>
+        <p>eBook Kindle y edición impresa disponibles. Envío a toda Latinoamérica, España y Estados Unidos.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        <h3>Con propósito</h3>
+        <p>Cada libro aborda un tema específico: límites, emociones, amistad, valentía. Fácil de usar como herramienta de crianza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo">
+  <div class="container">
+    <div class="section-label">Nuestra colección</div>
+    <h2 class="section-title">Catálogo completo</h2>
+    <p class="section-subtitle">Todos los títulos disponibles en Amazon. Haz clic en Kindle o Impreso para ir directo a la página del libro.</p>
+
+    <div class="filtros">
+      <button class="filtro-btn active" onclick="filtrar('todos', this)">Todos</button>
+      <button class="filtro-btn" onclick="filtrar('emociones', this)">Emociones</button>
+      <button class="filtro-btn" onclick="filtrar('valores', this)">Valores</button>
+      <button class="filtro-btn" onclick="filtrar('aprendizaje', this)">Aprendizaje</button>
+      <button class="filtro-btn" onclick="filtrar('ingles', this)">En inglés</button>
+    </div>
+
+    <div class="libros-grid" id="libros-grid"></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container">
+    <div class="section-label">Recursos para familias</div>
+    <h2 class="section-title">Blog y artículos</h2>
+    <p class="section-subtitle">Consejos, reflexiones y guías para acompañar la crianza con valores. Contenido que siempre es útil.</p>
+
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-categoria">Crianza</div>
+        <h3>Cómo hablar de emociones con niños de 4 a 8 años</h3>
+        <p>Las emociones no se explican, se viven. Te compartimos cómo usar los cuentos como puente para que tu hijo entienda lo que siente.</p>
+        <a href="#" class="blog-link">Leer artículo →</a>
+      </div>
+      <div class="blog-card">
+        <div class="blog-categoria">Valores</div>
+        <h3>Enseñar límites sin castigar: guía práctica para padres</h3>
+        <p>Decir que no también es una forma de amor. Descubre cómo enseñar a tu hijo a poner límites desde el respeto y la empatía.</p>
+        <a href="#" class="blog-link">Leer artículo →</a>
+      </div>
+      <div class="blog-card">
+        <div class="blog-categoria">Lectura</div>
+        <h3>10 libros para leer antes de dormir según la edad</h3>
+        <p>La hora del cuento es un ritual poderoso. Aquí te sugerimos títulos por rango de edad para aprovechar ese momento único.</p>
+        <a href="#" class="blog-link">Leer artículo →</a>
+      </div>
+      <div class="blog-card">
+        <div class="blog-categoria">Resiliencia</div>
+        <h3>¿Cómo ayudar a un niño a superar el miedo al fracaso?</h3>
+        <p>El fracaso es parte del aprendizaje. Estas estrategias — y algunos libros clave — pueden ayudarte a transformar esa narrativa en casa.</p>
+        <a href="#" class="blog-link">Leer artículo →</a>
+      </div>
+      <div class="blog-card">
+        <div class="blog-categoria">Amistad</div>
+        <h3>Bullying: qué decirle a tu hijo y qué no decirle jamás</h3>
+        <p>Las palabras importan. Aprende a abrir el diálogo de forma que tu hijo se sienta escuchado, no juzgado.</p>
+        <a href="#" class="blog-link">Leer artículo →</a>
+      </div>
+      <div class="blog-card">
+        <div class="blog-categoria">Autoestima</div>
+        <h3>Afirmaciones positivas: ¿funcionan realmente con niños?</h3>
+        <p>La ciencia dice que sí, con condiciones. Te explicamos cómo y cuándo usarlas para que sean genuinas y no vacías.</p>
+        <a href="#" class="blog-link">Leer artículo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="container">
+    <div class="nosotros-grid">
+      <div class="nosotros-texto">
+        <div class="section-label">Quiénes somos</div>
+        <h2 class="section-title">Pequeños Grandes Valores</h2>
+        <p>Somos una editorial independiente especializada en libros infantiles con valores. Creemos que los mejores hábitos del carácter se forman a través de historias, no de sermones.</p>
+        <p>Nuestros libros están diseñados para ser herramientas de crianza: cada título aborda un tema específico con personajes entrañables y situaciones reales que los niños reconocen en su vida diaria.</p>
+        <p>Publicamos en español e inglés, en formato Kindle y edición impresa, para llegar a familias en todo el mundo de habla hispana y más allá.</p>
+      </div>
+      <div class="nosotros-stats">
+        <div class="stat-card">
+          <div class="stat-numero">40+</div>
+          <div class="stat-label">Títulos publicados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-numero">2</div>
+          <div class="stat-label">Idiomas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-numero">ES · EN</div>
+          <div class="stat-label">Mercados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-numero">KDP</div>
+          <div class="stat-label">Amazon Select</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo_pgv_dark.png" alt="PGV Pequeños Grandes Valores">
+  <p>
+    © 2026 Pequeños Grandes Valores · Todos los derechos reservados<br>
+    <a href="mailto:hola@pequenosgrandesvalores.com">hola@pequenosgrandesvalores.com</a>
+  </p>
+</footer>
+
+<script>
+const libros = [
+  { titulo: "Así digo que no", autor: "Tree Núñez", desc: "Historias para aprender a poner límites con respeto.", tema: "emociones", kindle: "B0G1KPSFRC" },
+  { titulo: "Natsu y el Arte de la Amistad", autor: "Tree Núñez", desc: "Lecciones mágicas para escuchar, compartir y hacer amigos de verdad.", tema: "valores", kindle: "B0F28BGG5T" },
+  { titulo: "Las Gafas de la Sabiduría", autor: "Tree Núñez", desc: "Una aventura para aprender a ver el mundo de otra manera.", tema: "valores", kindle: "B0DRXQ8JDY" },
+  { titulo: "Aprender Juntos", autor: "Tree Núñez", desc: "Métodos simples para disfrutar la escuela y prepararse para el futuro.", tema: "aprendizaje", kindle: "B0DSR2JHCK", papel: "B0DSV451S6" },
+  { titulo: "Trucos para Cuidar tu Mente", autor: "Tree Núñez", desc: "Cómo pensar, descansar y crear pueden cambiar tu vida.", tema: "emociones", kindle: "B0DSCS4FZS" },
+  { titulo: "Mind Care Tricks", autor: "Tree Núñez", desc: "Discover how thinking, resting and creating can transform your life.", tema: "ingles", kindle: "B0DSD4N4XZ" },
+  { titulo: "En Tu Película, Tú Eres el Héroe", autor: "Tree Núñez", desc: "Cómo escribir, dirigir y protagonizar la mejor aventura de tu vida.", tema: "valores", kindle: "B0DSB1ZRHB", papel: "B0DSBYCHVZ" },
+  { titulo: "In Your Movie, You Are the Hero", autor: "Tree Núñez", desc: "How to write, direct, and star in the greatest adventure of your life.", tema: "ingles", kindle: "B0DSC8X4YC", papel: "B0DSFGTXQR" },
+  { titulo: "Laboratorio de los Pequeños Científicos", autor: "Tree Núñez", desc: "Descubre, experimenta y resuelve los misterios del universo.", tema: "aprendizaje", kindle: "B0DS9B4L92", papel: "B0DSBV29TJ" },
+  { titulo: "¡El Mundo en Relojes!", autor: "Tree Núñez", desc: "Descubre los husos horarios de forma divertida.", tema: "aprendizaje", kindle: "B0DS1KWP5X", papel: "B0DS9S44D1" },
+  { titulo: "¿Y Si Pudieras Apagar la Pena?", autor: "Tree Núñez", desc: "Enciende tu valentía.", tema: "emociones", kindle: "B0DRNNNVY9", papel: "B0DRVY6B3Z" },
+  { titulo: "Pedir, Preguntar y Agradecer Cambia el Mundo", autor: "Tree Núñez", desc: "Historias sobre el poder de expresar lo que sientes y necesitas.", tema: "valores", kindle: "B0DS56L44W", papel: "B0DS9S7CC4" },
+  { titulo: "The Smart Squad's Secret to Success", autor: "Tree Núñez", desc: "Teamwork, empathy, and bravery for kids who want to shine.", tema: "ingles", kindle: "B0DMZV9VKT", papel: "B0DQJL589J" },
+  { titulo: "El Gran Árbol de la Vida: Explorando la Evolución", autor: "Tree Núñez", desc: "Una aventura para entender de dónde venimos.", tema: "aprendizaje", kindle: "B0DS914H6Q" },
+  { titulo: "Eri y el Valor de Ser Diferente", autor: "Tree Núñez", desc: "Un cuento sobre autoestima, valentía y empatía.", tema: "valores", kindle: "B0DRZ3H7G4" },
+  { titulo: "El Rayo de la Amabilidad", autor: "Tree Núñez", desc: "Cómo los pequeños gestos pueden iluminar el mundo.", tema: "valores", kindle: "B0DRTX3R9J" },
+  { titulo: "El Pueblo de las Buenas Decisiones", autor: "Tree Núñez", desc: "Un cuento sobre valores y trabajo en equipo.", tema: "valores", kindle: "B0DH3954TN" },
+  { titulo: "El Jardín Mágico de las Amistades", autor: "Tree Núñez", desc: "Cuidemos las flores que nos hacen felices.", tema: "valores", kindle: "B0DRTJRPCM" },
+  { titulo: "El Viaje Dulce de Zuki", autor: "Tree Núñez", desc: "¿Qué pasa con el azúcar en mi cuerpo?", tema: "aprendizaje", kindle: "B0DRT2V874" },
+  { titulo: "Las Raíces del Español", autor: "Tree Núñez", desc: "Etimología para niños.", tema: "aprendizaje", kindle: "B0DRNQCLFC" },
+  { titulo: "El Monstruo de las Emociones Perdidas", autor: "Camila Núñez", desc: "Un viaje interactivo para descubrir la alegría, la calma y el crecimiento.", tema: "emociones", kindle: "B0DPB82YCD", papel: "B0DQJP921Y" },
+  { titulo: "The Friendly Monster of Lost Emotions", autor: "Camila Núñez", desc: "An interactive journey of joy, calm, and growth.", tema: "ingles", kindle: "B0DPB35L87" },
+  { titulo: "Lo Bueno de Pensar y lo Bueno de No Pensar", autor: "Camila Núñez", desc: "Tu mente debe pensar, soñar y descansar, y no solo trabajar.", tema: "emociones", kindle: "B0DPRCYLPT", papel: "B0DQDCYS7M" },
+  { titulo: "Los Detectives del Curio-Lab", autor: "Camila Núñez", desc: "El misterio de las hormigas invisibles.", tema: "aprendizaje", kindle: "B0DR3CR8TX", papel: "B0DR5MWV2N" },
+  { titulo: "¡Sé Valiente y Nunca Te Rindas!", autor: "Camila Núñez", desc: "Una guía de perseverancia para niños.", tema: "valores", kindle: "B0DM7KR38F", papel: "B0DQKQRHJX" },
+  { titulo: "Lecciones Divertidas para la Vida (Sun Tzu)", autor: "Camila Núñez", desc: "Inspirado en las enseñanzas de Sun Tzu.", tema: "valores", kindle: "B0DJD6SVZ2", papel: "B0DK35Y11L" },
+  { titulo: "El Desafío de los 60 Minutos con Nico el Niño Doctor", autor: "Camila Núñez", desc: "El movimiento cambia tu día y tu vida.", tema: "aprendizaje", kindle: "B0DPVXNJ68" },
+  { titulo: "Los Tres Tesoros para tu Vida Diaria", autor: "Camila Núñez", desc: "Tiempo, atención y energía.", tema: "valores", kindle: "B0DPVMD544" },
+  { titulo: "Every Little Step Counts", autor: "Camila Núñez", desc: "Max the Raccoon discovers the power of practice.", tema: "ingles", kindle: "B0DNPYMYJP" },
+  { titulo: "Cada Pasito Cuenta", autor: "Camila Núñez", desc: "Max el Mapache descubre el poder de la práctica.", tema: "valores", kindle: "B0DNPYWTRG" },
+  { titulo: "Resolver Problemas como un Ninja", autor: "Camila Núñez", desc: "Lecciones de paz y estrategia para niños.", tema: "valores", kindle: "B0DK4BH4BD" },
+  { titulo: "Pepe Paciencia y la Magia de Saber Esperar", autor: "Camila Núñez", desc: "Una historia sobre el valor de la paciencia.", tema: "emociones", kindle: "B0DLTS6B9Y" },
+  { titulo: "Pepe Patience and the Magic of Waiting", autor: "Camila Núñez", desc: "A story about the magic of patience.", tema: "ingles", kindle: "B0DLTQW8DM" },
+  { titulo: "El Gran Juego de las Decisiones", autor: "Natalia Núñez", desc: "Una aventura interactiva para pensar, negociar y aprender a decidir.", tema: "aprendizaje", kindle: "B0DPTSY114" },
+  { titulo: "El Lápiz Mágico de Sofía", autor: "Natalia Núñez", desc: "Descubre el poder de imaginar y crear.", tema: "valores", kindle: "B0DQYDN76D", papel: "B0DQYP7GXF" },
+  { titulo: "La Casa de las Apariencias", autor: "Natalia Núñez", desc: "Una lección sobre construir con propósito.", tema: "valores", kindle: "B0DQ71SLJH" },
+  { titulo: "Kailo's Life Toolkit", autor: "E.V. Starling", desc: "Discover 5 life-changing tools for happy and confident kids.", tema: "ingles", kindle: "B0DLNZQYFM", papel: "B0DQKR473S" },
+  { titulo: "El Poder de las Palabras", autor: "Natalia Vazquez", desc: "Aprende a pedir, preguntar y agradecer.", tema: "valores", kindle: "B0DMK9Q4R1", papel: "B0DQDN9KJN" },
+  { titulo: "Pequeños Estoicos", autor: "Natalia Núñez", desc: "Resiliencia, autocontrol y virtudes que te harán grande.", tema: "valores", kindle: "B0DLYPD6LH", papel: "B0DQJ6CG64" },
+  { titulo: "Little Stoics", autor: "Natalia Núñez", desc: "Resilience and self-control for kids.", tema: "ingles", kindle: "B0DLYV1FVX" },
+  { titulo: "Ajedrez para Pequeños Maestros", autor: "Natalia Núñez", desc: "Descubre el juego de estrategia más divertido del mundo.", tema: "aprendizaje", kindle: "B0DP6629MX" },
+  { titulo: "Microeconomía para Minieconomistas", autor: "Natalia Núñez", desc: "Aprende sobre dinero, decisiones y recursos.", tema: "aprendizaje", kindle: "B0CZ7DYLTS" },
+  { titulo: "Microeconomics for Minieconomists", autor: "Natalia Núñez", desc: "Learn about money, decisions and resources.", tema: "ingles", kindle: "B0DNYP4DYK" },
+  { titulo: "La Basura de Tino el Erizo", autor: "Natalia Núñez", desc: "¿Qué pasa si nadie recoge lo que tiramos?", tema: "valores", kindle: "B0DPTP7KDL" },
+  { titulo: "El poder de ser valiente está dentro de ti", autor: "Natalia Núñez", desc: "Enfrenta tus retos con una actitud positiva y valiente.", tema: "emociones", kindle: "B0DQ9DNWJL" },
+  { titulo: "100 Afirmaciones Positivas para Niñas", autor: "Natalia Vazquez", desc: "Construye autoestima y confianza.", tema: "emociones", kindle: "B0DHV4THHQ", papel: "B0DJDN5S8N" },
+];
+
+const temaLabels = {
+  emociones: "Emociones",
+  valores: "Valores",
+  aprendizaje: "Aprendizaje",
+  ingles: "En inglés"
+};
+
+let temaActivo = "todos";
+
+function renderLibros() {
+  const grid = document.getElementById("libros-grid");
+  const filtrados = temaActivo === "todos" ? libros : libros.filter(l => l.tema === temaActivo);
+  grid.innerHTML = filtrados.map(l => `
+    <div class="libro-card">
+      <span class="libro-tema">${temaLabels[l.tema] || l.tema}</span>
+      <div class="libro-titulo">${l.titulo}</div>
+      <div class="libro-autor">${l.autor}</div>
+      <div class="libro-desc">${l.desc}</div>
+      <div class="libro-links">
+        ${l.kindle ? `<a class="libro-link libro-link-kindle" href="https://www.amazon.com/dp/${l.kindle}" target="_blank" rel="noopener">Kindle</a>` : ""}
+        ${l.papel ? `<a class="libro-link libro-link-impreso" href="https://www.amazon.com/dp/${l.papel}" target="_blank" rel="noopener">Impreso</a>` : ""}
+      </div>
+    </div>
+  `).join("");
+}
+
+function filtrar(tema, btn) {
+  temaActivo = tema;
+  document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  renderLibros();
+}
+
+renderLibros();
+</script>
+</body>
+</html>
