@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQ7Q1DPSD5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SQ7Q1DPSD5');
+</script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienvenidos a Pequeños Grandes Valores · Blog</title>
+<meta name="description" content="Cuando empecé a escribir para niños, no buscaba enseñarles nada. Buscaba acompañarlos.">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pequenosgrandesvalores.com/blog/bienvenida/">
+<meta property="og:title" content="Bienvenidos a Pequeños Grandes Valores">
+<meta property="og:description" content="Cuando empecé a escribir para niños, no buscaba enseñarles nada. Buscaba acompañarlos.">
+<meta property="og:image" content="https://pequenosgrandesvalores.com/logo_pgv.png">
+<meta property="og:locale" content="es_ES">
+<meta property="article:published_time" content="2026-04-25">
+<meta property="article:author" content="Tree Núñez">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bienvenidos a Pequeños Grandes Valores">
+<meta name="twitter:description" content="Cuando empecé a escribir para niños, no buscaba enseñarles nada. Buscaba acompañarlos.">
+<meta name="twitter:image" content="https://pequenosgrandesvalores.com/logo_pgv.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --azul: #5b7bc4;
+    --azul-claro: #eef2fb;
+    --azul-medio: #d0daef;
+    --marino: #1c2b4a;
+    --crema: #faf8f3;
+    --crema-oscura: #f0ece3;
+    --texto: #2a2a2a;
+    --texto-suave: #6b6b6b;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--crema);
+    color: var(--texto);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--crema);
+    border-bottom: 1px solid var(--crema-oscura);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 64px; width: auto; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--azul); }
+
+  .breadcrumb {
+    max-width: 720px;
+    margin: 2.5rem auto 0;
+    padding: 0 2rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+  }
+  .breadcrumb a {
+    color: var(--texto-suave);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .breadcrumb a:hover { color: var(--azul); }
+
+  article.post {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 2rem 5rem;
+  }
+  article.post .post-meta {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--texto-suave);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  article.post h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    color: var(--marino);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+  }
+  article.post .post-body {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    line-height: 1.75;
+    color: var(--texto);
+  }
+  article.post .post-body p {
+    margin-bottom: 1.4rem;
+  }
+  article.post .post-body p:first-of-type::first-letter {
+    font-family: var(--serif);
+    font-size: 3.4rem;
+    font-weight: 600;
+    color: var(--azul);
+    float: left;
+    line-height: 0.9;
+    padding: 0.4rem 0.6rem 0 0;
+  }
+
+  .post-back {
+    max-width: 720px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+    text-align: center;
+  }
+  .post-back a {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--azul);
+    text-decoration: none;
+    border: 1px solid var(--azul-medio);
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .post-back a:hover {
+    background: var(--azul-claro);
+  }
+
+  footer {
+    background: var(--marino);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.85rem;
+  }
+  footer img {
+    height: 80px;
+    width: auto;
+    opacity: 0.85;
+    margin-bottom: 1rem;
+  }
+  footer a { color: var(--azul); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .nav-links { gap: 1.2rem; }
+    .nav-links a { font-size: 0.75rem; }
+    .nav-logo img { height: 48px; }
+    article.post .post-body { font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo_pgv.png" alt="PGV Pequeños Grandes Valores">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#catalogo">Catálogo</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+    <li><a href="/#nosotros">Nosotros</a></li>
+  </ul>
+</nav>
+
+<nav class="breadcrumb">
+  <a href="/blog/">← Blog · Pequeños Grandes Valores</a>
+</nav>
+
+<article class="post">
+  <div class="post-meta">25 de abril, 2026 · Tree Núñez</div>
+  <h1>Bienvenidos a Pequeños Grandes Valores</h1>
+  <div class="post-body">
+    <p>Cuando empecé a escribir para niños, no buscaba enseñarles nada. Buscaba acompañarlos.</p>
+
+    <p>Hay valores que no se aprenden con sermones, ni con listas pegadas en el refrigerador, ni con una clase de cuarenta minutos los martes. Se aprenden con cuentos. Con personajes que tienen miedo, que se equivocan, que descubren algo y vuelven a su cama un poco distintos. Esa es la idea detrás de cada libro de Pequeños Grandes Valores.</p>
+
+    <p>Este blog quiere ser un lugar más tranquilo que el catálogo. Aquí voy a compartir cómo nace cada libro, qué piensan los niños cuando los leen (a veces son los mejores editores), y reflexiones sobre crianza consciente, paciencia, aburrimiento y todo eso que el mundo moderno nos hace difícil dar a los más pequeños.</p>
+
+    <p>No habrá calendario rígido. Publicaré cuando tenga algo que realmente valga la pena leer.</p>
+
+    <p>Gracias por estar aquí. Si llegaste a este sitio porque un libro te gustó, o porque estás buscando algo distinto para leerle a un niño esta noche, espero que encuentres lo que necesitas.</p>
+
+    <p style="margin-top: 2em;"><em>— Tree Núñez</em></p>
+  </div>
+</article>
+
+<div class="post-back">
+  <a href="/blog/">← Volver al blog</a>
+</div>
+
+<footer>
+  <img src="/logo_pgv_dark.png" alt="PGV Pequeños Grandes Valores">
+  <p>
+    © 2026 Pequeños Grandes Valores · Todos los derechos reservados<br>
+    <a href="mailto:hola@pequenosgrandesvalores.com">hola@pequenosgrandesvalores.com</a>
+  </p>
+</footer>
+
+</body>
+</html>
