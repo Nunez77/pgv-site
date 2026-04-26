@@ -850,7 +850,6 @@ let temaActivo = "todos";
 function renderLibros() {
   const grid = document.getElementById("libros-grid");
   const filtrados = temaActivo === "todos" ? libros : libros.filter(l => l.tema === temaActivo);
-  // TODO: agregar ?tag=XXXXX-20 a las URLs de amazon.com/dp/ cuando se active Amazon Associates
   grid.innerHTML = filtrados.map(l => `
     <div class="libro-card">
       <span class="libro-tema">${temaLabels[l.tema] || l.tema}</span>
@@ -858,8 +857,8 @@ function renderLibros() {
       <div class="libro-autor">${l.autor}</div>
       <div class="libro-desc">${l.desc}</div>
       <div class="libro-links">
-        ${l.kindle ? `<a class="libro-link libro-link-kindle" href="https://www.amazon.com/dp/${l.kindle}" target="_blank" rel="noopener">Kindle</a>` : ""}
-        ${l.papel ? `<a class="libro-link libro-link-impreso" href="https://www.amazon.com/dp/${l.papel}" target="_blank" rel="noopener">Impreso</a>` : ""}
+        ${l.kindle ? `<a class="libro-link libro-link-kindle" href="https://www.amazon.com/dp/${l.kindle}?tag=khcxrrexvpl-20" target="_blank" rel="noopener">Kindle</a>` : ""}
+        ${l.papel ? `<a class="libro-link libro-link-impreso" href="https://www.amazon.com/dp/${l.papel}?tag=khcxrrexvpl-20" target="_blank" rel="noopener">Impreso</a>` : ""}
       </div>
     </div>
   `).join("");
