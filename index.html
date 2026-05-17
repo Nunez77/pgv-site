@@ -444,6 +444,89 @@
 
   .libro-link-impreso:hover { background: var(--azul-medio); }
 
+  /* SERIE DESTACADA */
+  #serie { background: var(--marino); }
+  #serie .section-label { color: rgba(91,123,196,0.95); }
+  #serie .section-title { color: #fff; }
+  #serie .section-subtitle { color: rgba(255,255,255,0.65); margin-bottom: 2.5rem; }
+
+  .serie-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(91,123,196,0.18);
+    border: 1px solid rgba(91,123,196,0.4);
+    padding: 8px 18px;
+    border-radius: 20px;
+    width: fit-content;
+    margin-bottom: 1.25rem;
+  }
+
+  .serie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 780px;
+  }
+
+  .serie-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .serie-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  }
+
+  .serie-vol {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .serie-card-titulo {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--marino);
+    line-height: 1.3;
+  }
+
+  .serie-card-rol {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--azul);
+  }
+
+  .serie-card-desc {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .serie-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
   /* BLOG */
   #blog { background: #fff; }
 
@@ -604,6 +687,7 @@
     <img src="logo_pgv.png" alt="PGV Pequeños Grandes Valores">
   </a>
   <ul class="nav-links">
+    <li><a href="#serie">Serie</a></li>
     <li><a href="#catalogo">Catálogo</a></li>
     <li><a href="/blog/">Blog</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
@@ -680,6 +764,39 @@
 </section>
 
 <!-- CATÁLOGO -->
+<!-- SERIE DESTACADA -->
+<section id="serie">
+  <div class="container">
+    <div class="serie-banner">📚 Serie · Pequeños Maestros de la Mente</div>
+    <div class="section-label">Colección</div>
+    <h2 class="section-title">Pequeños Maestros de la Mente</h2>
+    <p class="section-subtitle">Una colección para niños de 6 a 10 años sobre el cuidado de la propia mente. El primer volumen explica cómo funciona pensar, descansar y soñar; el segundo entrega las herramientas prácticas para hacerlo en el día a día.</p>
+
+    <div class="serie-grid">
+      <div class="serie-card">
+        <span class="serie-vol">Vol. 1 · Concepto</span>
+        <div class="serie-card-titulo">Lo Bueno de Pensar y lo Bueno de No Pensar</div>
+        <div class="serie-card-rol">Cómo funciona pensar, descansar y soñar</div>
+        <div class="serie-card-desc">Tu mente debe pensar, soñar y descansar, y no solo trabajar.</div>
+        <div class="serie-links">
+          <a class="libro-link libro-link-kindle" href="https://www.amazon.com/dp/B0DPRCYLPT?tag=khcxrrexvpl-20" target="_blank" rel="noopener">Kindle</a>
+          <a class="libro-link libro-link-impreso" href="https://www.amazon.com/dp/B0GYL8M1YJ?tag=khcxrrexvpl-20" target="_blank" rel="noopener">Impreso</a>
+        </div>
+      </div>
+      <div class="serie-card">
+        <span class="serie-vol">Vol. 2 · Práctica</span>
+        <div class="serie-card-titulo">Trucos para Cuidar tu Mente</div>
+        <div class="serie-card-rol">Las herramientas para el día a día</div>
+        <div class="serie-card-desc">Cómo pensar, descansar y crear pueden cambiar tu vida.</div>
+        <div class="serie-links">
+          <a class="libro-link libro-link-kindle" href="https://www.amazon.com/dp/B0DSCS4FZS?tag=khcxrrexvpl-20" target="_blank" rel="noopener">Kindle</a>
+          <a class="libro-link libro-link-impreso" href="https://www.amazon.com/dp/B0H23LFQH5?tag=khcxrrexvpl-20" target="_blank" rel="noopener">Impreso</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="catalogo">
   <div class="container">
     <div class="section-label">Nuestra colección</div>
@@ -795,9 +912,9 @@
 const libros = [
   { titulo: "Así digo que no", autor: "Tree Núñez", desc: "Historias para aprender a poner límites con respeto.", tema: "emociones", kindle: "B0G1KPSFRC" },
   { titulo: "Natsu y el Arte de la Amistad", autor: "Tree Núñez", desc: "Lecciones mágicas para escuchar, compartir y hacer amigos de verdad.", tema: "valores", kindle: "B0F28BGG5T" },
-  { titulo: "Las Gafas de la Sabiduría", autor: "Tree Núñez", desc: "Una aventura para aprender a ver el mundo de otra manera.", tema: "valores", kindle: "B0DRXQ8JDY" },
+  { titulo: "Las Gafas de la Sabiduría", autor: "Tree Núñez", desc: "Una aventura para aprender a ver el mundo de otra manera.", tema: "valores", kindle: "B0DRXQ8JDY", papel: "B0H23XMLYQ" },
   { titulo: "Aprender Juntos", autor: "Tree Núñez", desc: "Métodos simples para disfrutar la escuela y prepararse para el futuro.", tema: "aprendizaje", kindle: "B0DSR2JHCK", papel: "B0DSV451S6" },
-  { titulo: "Trucos para Cuidar tu Mente", autor: "Tree Núñez", desc: "Cómo pensar, descansar y crear pueden cambiar tu vida.", tema: "emociones", kindle: "B0DSCS4FZS" },
+  { titulo: "Trucos para Cuidar tu Mente", autor: "Tree Núñez", desc: "Cómo pensar, descansar y crear pueden cambiar tu vida.", tema: "emociones", kindle: "B0DSCS4FZS", papel: "B0H23LFQH5" },
   { titulo: "Mind Care Tricks", autor: "Tree Núñez", desc: "Discover how thinking, resting and creating can transform your life.", tema: "ingles", kindle: "B0DSD4N4XZ" },
   { titulo: "En Tu Película, Tú Eres el Héroe", autor: "Tree Núñez", desc: "Cómo escribir, dirigir y protagonizar la mejor aventura de tu vida.", tema: "valores", kindle: "B0DSB1ZRHB", papel: "B0DSBYCHVZ" },
   { titulo: "In Your Movie, You Are the Hero", autor: "Tree Núñez", desc: "How to write, direct, and star in the greatest adventure of your life.", tema: "ingles", kindle: "B0DSC8X4YC", papel: "B0DSFGTXQR" },
@@ -812,10 +929,10 @@ const libros = [
   { titulo: "El Pueblo de las Buenas Decisiones", autor: "Tree Núñez", desc: "Un cuento sobre valores y trabajo en equipo.", tema: "valores", kindle: "B0DH3954TN" },
   { titulo: "El Jardín Mágico de las Amistades", autor: "Tree Núñez", desc: "Cuidemos las flores que nos hacen felices.", tema: "valores", kindle: "B0DRTJRPCM" },
   { titulo: "El Viaje Dulce de Zuki", autor: "Tree Núñez", desc: "¿Qué pasa con el azúcar en mi cuerpo?", tema: "aprendizaje", kindle: "B0DRT2V874" },
-  { titulo: "Las Raíces del Español", autor: "Tree Núñez", desc: "Etimología para niños.", tema: "aprendizaje", kindle: "B0DRNQCLFC" },
+  { titulo: "Las Raíces del Español", autor: "Tree Núñez", desc: "Etimología para niños.", tema: "aprendizaje", kindle: "B0DRNQCLFC", papel: "B0H23R62PM" },
   { titulo: "El Monstruo de las Emociones Perdidas", autor: "Tree Núñez", desc: "Un viaje interactivo para descubrir la alegría, la calma y el crecimiento.", tema: "emociones", kindle: "B0DPB82YCD", papel: "B0DQJP921Y" },
   { titulo: "The Friendly Monster of Lost Emotions", autor: "Tree Núñez", desc: "An interactive journey of joy, calm, and growth.", tema: "ingles", kindle: "B0DPB35L87" },
-  { titulo: "Lo Bueno de Pensar y lo Bueno de No Pensar", autor: "Tree Núñez", desc: "Tu mente debe pensar, soñar y descansar, y no solo trabajar.", tema: "emociones", kindle: "B0DPRCYLPT", papel: "B0DQDCYS7M" },
+  { titulo: "Lo Bueno de Pensar y lo Bueno de No Pensar", autor: "Tree Núñez", desc: "Tu mente debe pensar, soñar y descansar, y no solo trabajar.", tema: "emociones", kindle: "B0DPRCYLPT", papel: "B0GYL8M1YJ" },
   { titulo: "Los Detectives del Curio-Lab", autor: "Tree Núñez", desc: "El misterio de las hormigas invisibles.", tema: "aprendizaje", kindle: "B0DR3CR8TX", papel: "B0DR5MWV2N" },
   { titulo: "¡Sé Valiente y Nunca Te Rindas!", autor: "Tree Núñez", desc: "Una guía de perseverancia para niños.", tema: "valores", kindle: "B0DM7KR38F", papel: "B0DQKQRHJX" },
   { titulo: "Lecciones Divertidas para la Vida (Sun Tzu)", autor: "Tree Núñez", desc: "Inspirado en las enseñanzas de Sun Tzu.", tema: "valores", kindle: "B0DJD6SVZ2", papel: "B0DK35Y11L" },
@@ -833,9 +950,9 @@ const libros = [
   { titulo: "El Poder de las Palabras", autor: "Tree Núñez", desc: "Aprende a pedir, preguntar y agradecer.", tema: "valores", kindle: "B0DMK9Q4R1", papel: "B0GW8ZG4Z5" },
   { titulo: "Pequeños Estoicos", autor: "Tree Núñez", desc: "Resiliencia, autocontrol y virtudes que te harán grande.", tema: "valores", kindle: "B0DLYPD6LH", papel: "B0GXW9X8JN" },
   { titulo: "Little Stoics", autor: "Tree Núñez", desc: "Virtues that make you strong: resilience, self-control and character for kids.", tema: "ingles", kindle: "B0DLYV1FVX", papel: "B0H17ZCCHW" },
-  { titulo: "Ajedrez para Pequeños Maestros", autor: "Tree Núñez", desc: "Descubre el juego de estrategia más divertido del mundo.", tema: "aprendizaje", kindle: "B0DP6629MX" },
+  { titulo: "Ajedrez para Pequeños Maestros", autor: "Tree Núñez", desc: "Descubre el juego de estrategia más divertido del mundo.", tema: "aprendizaje", kindle: "B0DP6629MX", papel: "B0H23XKV42" },
   { titulo: "Microeconomía para Minieconomistas", autor: "Tree Núñez", desc: "Aprende sobre dinero, decisiones y recursos.", tema: "aprendizaje", kindle: "B0CZ7DYLTS" },
-  { titulo: "Microeconomics for Minieconomists", autor: "Tree Núñez", desc: "Learn about money, decisions and resources.", tema: "ingles", kindle: "B0DNYP4DYK" },
+  { titulo: "Microeconomics for Minieconomists", autor: "Tree Núñez", desc: "Learn about money, decisions and resources.", tema: "ingles", kindle: "B0DNYP4DYK", papel: "B0H1RBHCPZ" },
   { titulo: "La Basura de Tino el Erizo", autor: "Tree Núñez", desc: "¿Qué pasa si nadie recoge lo que tiramos?", tema: "valores", kindle: "B0DPTP7KDL" },
   { titulo: "El poder de ser valiente está dentro de ti", autor: "Tree Núñez", desc: "Enfrenta tus retos con una actitud positiva y valiente.", tema: "emociones", kindle: "B0DQ9DNWJL" },
   { titulo: "100 Afirmaciones Positivas para Niñas", autor: "Tree Núñez", desc: "Construye autoestima y confianza.", tema: "emociones", kindle: "B0DHV4THHQ", papel: "B0DJDN5S8N" },
