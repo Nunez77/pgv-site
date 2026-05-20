@@ -911,52 +911,65 @@
 
 <script>
 const libros = [
+  // ========== ESPAÑOL — TREE NÚÑEZ ==========
   { titulo: "Así digo que no", autor: "Tree Núñez", desc: "Historias para aprender a poner límites con respeto.", tema: "emociones", kindle: "B0G1KPSFRC" },
   { titulo: "Natsu y el Arte de la Amistad", autor: "Tree Núñez", desc: "Lecciones mágicas para escuchar, compartir y hacer amigos de verdad.", tema: "valores", kindle: "B0F28BGG5T" },
   { titulo: "Las Gafas de la Sabiduría", autor: "Tree Núñez", desc: "Una aventura para aprender a ver el mundo de otra manera.", tema: "valores", kindle: "B0DRXQ8JDY", papel: "B0H23XMLYQ" },
   { titulo: "Aprender Juntos", autor: "Tree Núñez", desc: "Métodos simples para disfrutar la escuela y prepararse para el futuro.", tema: "aprendizaje", kindle: "B0DSR2JHCK", papel: "B0DSV451S6" },
   { titulo: "Trucos para Cuidar tu Mente", autor: "Tree Núñez", desc: "Cómo pensar, descansar y crear pueden cambiar tu vida.", tema: "emociones", kindle: "B0DSCS4FZS", papel: "B0H23LFQH5" },
-  { titulo: "Mind Care Tricks", autor: "Tree Núñez", desc: "Discover how thinking, resting and creating can transform your life.", tema: "ingles", kindle: "B0DSD4N4XZ" },
   { titulo: "En Tu Película, Tú Eres el Héroe", autor: "Tree Núñez", desc: "Cómo escribir, dirigir y protagonizar la mejor aventura de tu vida.", tema: "valores", kindle: "B0DSB1ZRHB", papel: "B0DSBYCHVZ" },
-  { titulo: "In Your Movie, You Are the Hero", autor: "Tree Núñez", desc: "How to write, direct, and star in the greatest adventure of your life.", tema: "ingles", kindle: "B0DSC8X4YC", papel: "B0DSFGTXQR" },
   { titulo: "Laboratorio de los Pequeños Científicos", autor: "Tree Núñez", desc: "Descubre, experimenta y resuelve los misterios del universo.", tema: "aprendizaje", kindle: "B0DS9B4L92", papel: "B0DSBV29TJ" },
   { titulo: "¡El Mundo en Relojes!", autor: "Tree Núñez", desc: "Descubre los husos horarios de forma divertida.", tema: "aprendizaje", kindle: "B0DS1KWP5X", papel: "B0GY96RKCK" },
   { titulo: "¿Y Si Pudieras Apagar la Pena?", autor: "Tree Núñez", desc: "Enciende tu valentía.", tema: "emociones", kindle: "B0DRNNNVY9", papel: "B0DRVY6B3Z" },
   { titulo: "Pedir, Preguntar y Agradecer Cambia el Mundo", autor: "Tree Núñez", desc: "Historias sobre el poder de expresar lo que sientes y necesitas.", tema: "valores", kindle: "B0DS56L44W", papel: "B0DS9S7CC4" },
-  { titulo: "The Smart Squad's Secret to Success", autor: "Tree Núñez", desc: "Teamwork, empathy, and bravery for kids who want to shine.", tema: "ingles", kindle: "B0DMZV9VKT", papel: "B0DQJL589J" },
   { titulo: "El Gran Árbol de la Vida: Explorando la Evolución", autor: "Tree Núñez", desc: "Una aventura para entender de dónde venimos.", tema: "aprendizaje", kindle: "B0DS914H6Q" },
-  { titulo: "Eri y el Valor de Ser Diferente", autor: "Tree Núñez", desc: "Un cuento sobre autoestima, valentía y empatía.", tema: "valores", kindle: "B0DRZ3H7G4" },
+  { titulo: "Eri y el Valor de Ser Diferente", autor: "Tree Núñez", desc: "Un cuento sobre autoestima, valentía y empatía.", tema: "valores", kindle: "B0DRZ3H7G4", papel: "B0H29FK6WD" },
   { titulo: "El Rayo de la Amabilidad", autor: "Tree Núñez", desc: "Cómo los pequeños gestos pueden iluminar el mundo.", tema: "valores", kindle: "B0DRTX3R9J" },
   { titulo: "El Pueblo de las Buenas Decisiones", autor: "Tree Núñez", desc: "Un cuento sobre valores y trabajo en equipo.", tema: "valores", kindle: "B0DH3954TN" },
   { titulo: "El Jardín Mágico de las Amistades", autor: "Tree Núñez", desc: "Cuidemos las flores que nos hacen felices.", tema: "valores", kindle: "B0DRTJRPCM" },
   { titulo: "El Viaje Dulce de Zuki", autor: "Tree Núñez", desc: "¿Qué pasa con el azúcar en mi cuerpo?", tema: "aprendizaje", kindle: "B0DRT2V874" },
   { titulo: "Las Raíces del Español", autor: "Tree Núñez", desc: "Etimología para niños.", tema: "aprendizaje", kindle: "B0DRNQCLFC", papel: "B0H23R62PM" },
   { titulo: "El Monstruo de las Emociones Perdidas", autor: "Tree Núñez", desc: "Un viaje interactivo para descubrir la alegría, la calma y el crecimiento.", tema: "emociones", kindle: "B0DPB82YCD", papel: "B0DQJP921Y" },
-  { titulo: "The Friendly Monster of Lost Emotions", autor: "Tree Núñez", desc: "An interactive journey of joy, calm, and growth.", tema: "ingles", kindle: "B0DPB35L87" },
   { titulo: "Lo Bueno de Pensar y lo Bueno de No Pensar", autor: "Tree Núñez", desc: "Tu mente debe pensar, soñar y descansar, y no solo trabajar.", tema: "emociones", kindle: "B0DPRCYLPT", papel: "B0GYL8M1YJ" },
-  { titulo: "Los Detectives del Curio-Lab", autor: "Tree Núñez", desc: "El misterio de las hormigas invisibles.", tema: "aprendizaje", kindle: "B0DR3CR8TX", papel: "B0DR5MWV2N" },
-  { titulo: "¡Sé Valiente y Nunca Te Rindas!", autor: "Tree Núñez", desc: "Una guía de perseverancia para niños.", tema: "valores", kindle: "B0DM7KR38F", papel: "B0DQKQRHJX" },
   { titulo: "Lecciones Divertidas para la Vida (Sun Tzu)", autor: "Tree Núñez", desc: "Inspirado en las enseñanzas de Sun Tzu.", tema: "valores", kindle: "B0DJD6SVZ2", papel: "B0DK35Y11L" },
-  { titulo: "El Desafío de los 60 Minutos con Nico el Niño Doctor", autor: "Tree Núñez", desc: "El movimiento cambia tu día y tu vida.", tema: "aprendizaje", kindle: "B0DPVXNJ68" },
-  { titulo: "Los Tres Tesoros para tu Vida Diaria", autor: "Tree Núñez", desc: "Tiempo, atención y energía.", tema: "valores", kindle: "B0DPVMD544" },
-  { titulo: "Every Little Step Counts", autor: "Tree Núñez", desc: "Max the Raccoon discovers the power of practice.", tema: "ingles", kindle: "B0DNPYMYJP" },
-  { titulo: "Cada Pasito Cuenta", autor: "Tree Núñez", desc: "Max el Mapache descubre el poder de la práctica.", tema: "valores", kindle: "B0DNPYWTRG" },
-  { titulo: "Resolver Problemas como un Ninja", autor: "Tree Núñez", desc: "Lecciones de paz y estrategia para niños.", tema: "valores", kindle: "B0DK4BH4BD" },
-  { titulo: "Pepe Paciencia y la Magia de Saber Esperar", autor: "Tree Núñez", desc: "Una historia sobre el valor de la paciencia.", tema: "emociones", kindle: "B0DLTS6B9Y" },
-  { titulo: "Pepe Patience and the Magic of Waiting", autor: "Tree Núñez", desc: "A story about the magic of patience.", tema: "ingles", kindle: "B0DLTQW8DM" },
-  { titulo: "El Gran Juego de las Decisiones", autor: "Tree Núñez", desc: "Una aventura interactiva para pensar, negociar y aprender a decidir.", tema: "aprendizaje", kindle: "B0DPTSY114" },
   { titulo: "El Lápiz Mágico de María", autor: "Tree Núñez", desc: "Descubre el poder de imaginar y crear.", tema: "valores", kindle: "B0DQYDN76D", papel: "B0GW93MR51" },
-  { titulo: "La Casa de las Apariencias", autor: "Tree Núñez", desc: "Una lección sobre construir con propósito.", tema: "valores", kindle: "B0DQ71SLJH" },
-  { titulo: "Kailo's Life Toolkit", autor: "Tree Núñez", desc: "Discover 5 life-changing tools for happy and confident kids.", tema: "ingles", kindle: "B0DLNZQYFM", papel: "B0DQKR473S" },
   { titulo: "El Poder de las Palabras", autor: "Tree Núñez", desc: "Aprende a pedir, preguntar y agradecer.", tema: "valores", kindle: "B0DMK9Q4R1", papel: "B0GW8ZG4Z5" },
   { titulo: "Pequeños Estoicos", autor: "Tree Núñez", desc: "Resiliencia, autocontrol y virtudes que te harán grande.", tema: "valores", kindle: "B0DLYPD6LH", papel: "B0GXW9X8JN" },
-  { titulo: "Little Stoics", autor: "Tree Núñez", desc: "Virtues that make you strong: resilience, self-control and character for kids.", tema: "ingles", kindle: "B0DLYV1FVX", papel: "B0H17ZCCHW" },
   { titulo: "Ajedrez para Pequeños Maestros", autor: "Tree Núñez", desc: "Descubre el juego de estrategia más divertido del mundo.", tema: "aprendizaje", kindle: "B0DP6629MX", papel: "B0H23XKV42" },
   { titulo: "Microeconomía para Minieconomistas", autor: "Tree Núñez", desc: "Aprende sobre dinero, decisiones y recursos.", tema: "aprendizaje", kindle: "B0CZ7DYLTS", papel: "B0H25H5MJK" },
+  { titulo: "UtopiAI: Alets y la vida en el mundo que soñamos", autor: "Tree Núñez", desc: "Una aventura sobre cómo podríamos vivir si imaginamos un mundo mejor con la IA.", tema: "aprendizaje", kindle: "B0FL1QY8M1" },
+
+  // ========== ESPAÑOL — CAMILA NÚÑEZ ==========
+  { titulo: "Los Detectives del Curio-Lab", autor: "Camila Núñez", desc: "El misterio de las hormigas invisibles.", tema: "aprendizaje", kindle: "B0DR3CR8TX", papel: "B0DR5MWV2N" },
+  { titulo: "¡Sé Valiente y Nunca Te Rindas!", autor: "Camila Núñez", desc: "Una guía de perseverancia para niños.", tema: "valores", kindle: "B0DM7KR38F", papel: "B0DQKQRHJX" },
+  { titulo: "El Desafío de los 60 Minutos con Nico el Niño Doctor", autor: "Camila Núñez", desc: "El movimiento cambia tu día y tu vida.", tema: "aprendizaje", kindle: "B0DPVXNJ68" },
+  { titulo: "Los Tres Tesoros para tu Vida Diaria", autor: "Camila Núñez", desc: "Tiempo, atención y energía.", tema: "valores", kindle: "B0DPVMD544" },
+  { titulo: "Cada Pasito Cuenta", autor: "Camila Núñez", desc: "Max el Mapache descubre el poder de la práctica.", tema: "valores", kindle: "B0DNPYWTRG" },
+  { titulo: "Resolver Problemas como un Ninja", autor: "Camila Núñez", desc: "Lecciones de paz y estrategia para niños.", tema: "valores", kindle: "B0DK4BH4BD" },
+  { titulo: "Pepe Paciencia y la Magia de Saber Esperar", autor: "Camila Núñez", desc: "Una historia sobre el valor de la paciencia.", tema: "emociones", kindle: "B0DLTS6B9Y" },
+
+  // ========== ESPAÑOL — NATALIA NÚÑEZ ==========
+  { titulo: "La Casa de las Apariencias", autor: "Natalia Núñez", desc: "Una lección sobre construir con propósito.", tema: "valores", kindle: "B0DQ71SLJH" },
+  { titulo: "La Basura de Tino el Erizo", autor: "Natalia Núñez", desc: "¿Qué pasa si nadie recoge lo que tiramos?", tema: "valores", kindle: "B0DPTP7KDL" },
+  { titulo: "El poder de ser valiente está dentro de ti", autor: "Natalia Núñez", desc: "Enfrenta tus retos con una actitud positiva y valiente.", tema: "emociones", kindle: "B0DQ9DNWJL" },
+  { titulo: "El Gran Juego de las Decisiones", autor: "Natalia Núñez", desc: "Una aventura interactiva para pensar, negociar y aprender a decidir.", tema: "aprendizaje", kindle: "B0DPTSY114" },
+
+  // ========== ESPAÑOL — NATALIA VAZQUEZ ==========
+  { titulo: "100 Afirmaciones Positivas para Niñas", autor: "Natalia Vazquez", desc: "Construye autoestima y confianza.", tema: "emociones", kindle: "B0DHV4THHQ", papel: "B0DJDN5S8N" },
+
+  // ========== INGLÉS — TREE NÚÑEZ ==========
+  { titulo: "Mind Care Tricks", autor: "Tree Núñez", desc: "Discover how thinking, resting and creating can transform your life.", tema: "ingles", kindle: "B0DSD4N4XZ" },
+  { titulo: "In Your Movie, You Are the Hero", autor: "Tree Núñez", desc: "How to write, direct, and star in the greatest adventure of your life.", tema: "ingles", kindle: "B0DSC8X4YC", papel: "B0DSFGTXQR" },
+  { titulo: "The Smart Squad's Secret to Success", autor: "Tree Núñez", desc: "Teamwork, empathy, and bravery for kids who want to shine.", tema: "ingles", kindle: "B0DMZV9VKT", papel: "B0DQJL589J" },
+  { titulo: "Little Stoics", autor: "Tree Núñez", desc: "Virtues that make you strong: resilience, self-control and character for kids.", tema: "ingles", kindle: "B0DLYV1FVX", papel: "B0H17ZCCHW" },
   { titulo: "Microeconomics for Minieconomists", autor: "Tree Núñez", desc: "Learn about money, decisions and resources.", tema: "ingles", kindle: "B0DNYP4DYK", papel: "B0H1RBHCPZ" },
-  { titulo: "La Basura de Tino el Erizo", autor: "Tree Núñez", desc: "¿Qué pasa si nadie recoge lo que tiramos?", tema: "valores", kindle: "B0DPTP7KDL" },
-  { titulo: "El poder de ser valiente está dentro de ti", autor: "Tree Núñez", desc: "Enfrenta tus retos con una actitud positiva y valiente.", tema: "emociones", kindle: "B0DQ9DNWJL" },
-  { titulo: "100 Afirmaciones Positivas para Niñas", autor: "Tree Núñez", desc: "Construye autoestima y confianza.", tema: "emociones", kindle: "B0DHV4THHQ", papel: "B0DJDN5S8N" },
+  { titulo: "Kailo's Life Toolkit", autor: "Tree Núñez", desc: "Discover 5 life-changing tools for happy and confident kids.", tema: "ingles", kindle: "B0DLNZQYFM", papel: "B0DQKR473S" },
+  { titulo: "UtopiAI: Alets and the Life We Dreamed", autor: "Tree Núñez", desc: "An adventure about how we could live if we imagine a better world with AI.", tema: "ingles", kindle: "B0FL1JV3NK" },
+
+  // ========== INGLÉS — CAMILA NÚÑEZ ==========
+  { titulo: "The Friendly Monster of Lost Emotions", autor: "Camila Núñez", desc: "An interactive journey of joy, calm, and growth.", tema: "ingles", kindle: "B0DPB35L87" },
+  { titulo: "Every Little Step Counts", autor: "Camila Núñez", desc: "Max the Raccoon discovers the power of practice.", tema: "ingles", kindle: "B0DNPYMYJP" },
+  { titulo: "Pepe Patience and the Magic of Waiting", autor: "Camila Núñez", desc: "A story about the magic of patience.", tema: "ingles", kindle: "B0DLTQW8DM" },
 ];
 
 const temaLabels = {
