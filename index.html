@@ -809,6 +809,7 @@
       <button class="filtro-btn" onclick="filtrar('valores', this)">Valores</button>
       <button class="filtro-btn" onclick="filtrar('aprendizaje', this)">Aprendizaje</button>
       <button class="filtro-btn" onclick="filtrar('ingles', this)">En inglés</button>
+      <button class="filtro-btn" onclick="filtrar('salud', this)">Salud</button>
     </div>
 
     <div class="libros-grid" id="libros-grid"></div>
@@ -927,7 +928,6 @@ const libros = [
   { titulo: "El Rayo de la Amabilidad", autor: "Tree Núñez", desc: "Cómo los pequeños gestos pueden iluminar el mundo.", tema: "valores", kindle: "B0DRTX3R9J", papel: "B0H2CZB22B" },
   { titulo: "El Pueblo de las Buenas Decisiones", autor: "Tree Núñez", desc: "Un cuento sobre valores y trabajo en equipo.", tema: "valores", kindle: "B0DH3954TN", papel: "B0H2J7SZ5G" },
   { titulo: "El Jardín Mágico de las Amistades", autor: "Tree Núñez", desc: "Cuidemos las flores que nos hacen felices.", tema: "valores", kindle: "B0DRTJRPCM", papel: "B0H3C6LHR4" },
-  { titulo: "El Viaje Dulce de Zuki", autor: "Tree Núñez", desc: "¿Qué pasa con el azúcar en mi cuerpo?", tema: "aprendizaje", kindle: "B0DRT2V874" },
   { titulo: "Las Raíces del Español", autor: "Tree Núñez", desc: "Etimología para niños.", tema: "aprendizaje", kindle: "B0DRNQCLFC", papel: "B0H23R62PM" },
   { titulo: "El Monstruo de las Emociones Perdidas", autor: "Tree Núñez", desc: "Un viaje interactivo para descubrir la alegría, la calma y el crecimiento.", tema: "emociones", kindle: "B0DPB82YCD", papel: "B0DQJP921Y" },
   { titulo: "Lo Bueno de Pensar y lo Bueno de No Pensar", autor: "Tree Núñez", desc: "Tu mente debe pensar, soñar y descansar, y no solo trabajar.", tema: "emociones", kindle: "B0DPRCYLPT", papel: "B0GYL8M1YJ" },
@@ -970,13 +970,16 @@ const libros = [
   { titulo: "The Friendly Monster of Lost Emotions", autor: "Camila Núñez", desc: "An interactive journey of joy, calm, and growth.", tema: "ingles", kindle: "B0DPB35L87" },
   { titulo: "Every Little Step Counts", autor: "Camila Núñez", desc: "Max the Raccoon discovers the power of practice.", tema: "ingles", kindle: "B0DNPYMYJP" },
   { titulo: "Pepe Patience and the Magic of Waiting", autor: "Camila Núñez", desc: "A story about the magic of patience.", tema: "ingles", kindle: "B0DLTQW8DM" },
+  // ========== SALUD Y NUTRICIÓN — TREE NÚÑEZ ==========
+  { titulo: "El Viaje Dulce de Zuki", autor: "Tree Núñez", desc: "Acompaña a Zuki, una gotita de azúcar, en un viaje por el cuerpo para descubrir cómo el azúcar afecta cada órgano y por qué el equilibrio es el secreto de una vida sana. Con ilustraciones a color, actividades y una receta de helado de plátano casero.", tema: "salud", kindle: "B0DRT2V874", papel: "B0H6R1XGWG" },
 ];
 
 const temaLabels = {
   emociones: "Emociones",
   valores: "Valores",
   aprendizaje: "Aprendizaje",
-  ingles: "En inglés"
+  ingles: "En inglés",
+  salud: "Salud y nutrición"
 };
 
 let temaActivo = "todos";
