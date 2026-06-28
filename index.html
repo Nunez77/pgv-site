@@ -677,6 +677,108 @@
   .hero h1 { animation-delay: 0.2s; }
   .hero p { animation-delay: 0.3s; }
   .hero-btns { animation-delay: 0.4s; }
+
+  /* ===== Banner Kindle (afiliado Amazon) ===== */
+  .kindle-cta { background: var(--crema); }
+  .kindle-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    align-items: center;
+    background: radial-gradient(ellipse 80% 70% at 70% 50%, #2a4070 0%, var(--marino) 75%);
+    border-radius: 14px;
+    padding: 3rem 3.5rem;
+    overflow: hidden;
+  }
+  .kindle-copy .kindle-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--azul-medio);
+    margin-bottom: 0.9rem;
+  }
+  .kindle-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .kindle-text {
+    color: rgba(255,255,255,0.82);
+    font-size: 1.02rem;
+    max-width: 480px;
+    margin-bottom: 1.6rem;
+  }
+  .kindle-btn {
+    display: inline-block;
+    background: var(--azul);
+    color: #fff;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s;
+  }
+  .kindle-btn:hover { background: #4a67a8; }
+  .kindle-fine {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.8rem;
+    margin-top: 1.1rem;
+  }
+  /* Mockup del dispositivo dibujado en CSS — sin imagen externa */
+  .kindle-device {
+    width: 200px;
+    height: 270px;
+    margin: 0 auto;
+    background: #11192b;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  }
+  .kindle-screen {
+    width: 100%;
+    height: 100%;
+    background: #f4f1ea;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 18px;
+  }
+  .kindle-screen-title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.12;
+    color: var(--marino);
+    text-align: center;
+  }
+  .kindle-screen-lines {
+    width: 68%;
+    height: 2px;
+    background: var(--azul-medio);
+    box-shadow: 0 8px 0 var(--azul-medio), 0 16px 0 var(--azul-medio), 0 24px 0 var(--azul-medio);
+    margin-top: 4px;
+  }
+  @media (max-width: 720px) {
+    .kindle-card {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .kindle-text { margin-left: auto; margin-right: auto; }
+    .kindle-device { width: 170px; height: 230px; }
+  }
 </style>
 </head>
 <body>
@@ -813,6 +915,27 @@
     </div>
 
     <div class="libros-grid" id="libros-grid"></div>
+  </div>
+</section>
+
+<!-- BANNER KINDLE (afiliado Amazon) -->
+<section class="kindle-cta">
+  <div class="container">
+    <div class="kindle-card">
+      <div class="kindle-device" aria-hidden="true">
+        <div class="kindle-screen">
+          <span class="kindle-screen-title">Pequeños<br>Grandes<br>Valores</span>
+          <span class="kindle-screen-lines"></span>
+        </div>
+      </div>
+      <div class="kindle-copy">
+        <div class="kindle-eyebrow">Lectura sin distracciones</div>
+        <h2 class="kindle-title">¿Buscas un regalo que dure años?</h2>
+        <p class="kindle-text">Un Kindle es el regalo perfecto para que un niño descubra el placer de leer. Sin TikTok, sin anuncios, sin notificaciones. Solo libros.</p>
+        <a class="kindle-btn" href="https://www.amazon.com/dp/B0CFPJYX7P?tag=khcxrrexvpl-20" target="_blank" rel="nofollow sponsored noopener noreferrer">Ver el Kindle Paperwhite →</a>
+        <p class="kindle-fine">Kindle Paperwhite · pantalla mate sin reflejos al sol · semanas de batería</p>
+      </div>
+    </div>
   </div>
 </section>
 
