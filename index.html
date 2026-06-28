@@ -779,6 +779,106 @@
     .kindle-text { margin-left: auto; margin-right: auto; }
     .kindle-device { width: 170px; height: 230px; }
   }
+
+  /* ===== Bundles temáticos (afiliado Amazon) ===== */
+  .bundles { background: #fff; }
+  .bundles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+  .bundle-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--crema);
+    border: 1px solid var(--crema-oscura);
+    border-top: 4px solid var(--azul);
+    border-radius: 12px;
+    padding: 1.8rem 1.6rem 1.6rem;
+  }
+  .bundle-covers {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    margin-bottom: 1.4rem;
+  }
+  .bundle-cover {
+    flex: 1;
+    aspect-ratio: 2 / 3;
+    max-width: 62px;
+    border-radius: 3px;
+    padding: 7px 6px;
+    color: #fff;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 0.58rem;
+    line-height: 1.12;
+    overflow: hidden;
+    box-shadow: 0 6px 14px rgba(28,43,74,0.18);
+  }
+  .bundle-cover:nth-child(1) { background: linear-gradient(160deg, #5b7bc4, #3a558f); }
+  .bundle-cover:nth-child(2) { background: linear-gradient(160deg, #1c2b4a, #2a4070); }
+  .bundle-cover:nth-child(3) { background: linear-gradient(160deg, #7a93cf, #5b7bc4); }
+  .bundle-cover:nth-child(4) { background: linear-gradient(160deg, #2f4068, #1c2b4a); }
+  .bundle-age {
+    align-self: flex-start;
+    background: var(--azul-claro);
+    color: var(--marino);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 3px 11px;
+    border-radius: 20px;
+    margin-bottom: 0.7rem;
+  }
+  .bundle-name {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--marino);
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+  }
+  .bundle-pitch {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    margin-bottom: 1.1rem;
+  }
+  .bundle-list {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    flex-grow: 1;
+  }
+  .bundle-list li {
+    font-size: 0.9rem;
+    color: var(--texto);
+    padding: 6px 0 6px 18px;
+    position: relative;
+    border-top: 1px solid var(--crema-oscura);
+  }
+  .bundle-list li:first-child { border-top: none; }
+  .bundle-list li::before {
+    content: "\203A";
+    position: absolute;
+    left: 2px;
+    color: var(--azul);
+    font-weight: 700;
+  }
+  .bundle-btn {
+    display: block;
+    text-align: center;
+    background: var(--marino);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .bundle-btn:hover { background: #2a4070; }
 </style>
 </head>
 <body>
@@ -915,6 +1015,71 @@
     </div>
 
     <div class="libros-grid" id="libros-grid"></div>
+  </div>
+</section>
+
+<!-- BUNDLES TEMÁTICOS (afiliado Amazon) -->
+<section class="bundles" id="bundles">
+  <div class="container">
+    <div class="section-label">Recomendados juntos</div>
+    <h2 class="section-title">Bundles temáticos</h2>
+    <p class="section-subtitle">Colecciones curadas con una promesa concreta. Tres o cuatro títulos que se complementan para acompañar una etapa.</p>
+    <div class="bundles-grid">
+      <div class="bundle-card">
+        <div class="bundle-covers" aria-hidden="true">
+          <span class="bundle-cover">Pequeños Estoicos</span>
+          <span class="bundle-cover">Trucos para Cuidar tu Mente</span>
+          <span class="bundle-cover">El Monstruo de las Emociones Perdidas</span>
+          <span class="bundle-cover">¿Y Si Pudieras Apagar la Pena?</span>
+        </div>
+        <span class="bundle-age">6 a 10 años</span>
+        <h3 class="bundle-name">Kit emocional infantil</h3>
+        <p class="bundle-pitch">Los 4 libros que necesita un niño para entender y manejar sus emociones.</p>
+        <ul class="bundle-list">
+          <li>Pequeños Estoicos</li>
+          <li>Trucos para Cuidar tu Mente</li>
+          <li>El Monstruo de las Emociones Perdidas</li>
+          <li>¿Y Si Pudieras Apagar la Pena?</li>
+        </ul>
+        <a class="bundle-btn" href="https://www.amazon.com/s?k=tree+nunez+emociones&i=stripbooks&tag=khcxrrexvpl-20" target="_blank" rel="noopener noreferrer nofollow sponsored">Conseguir los 4 libros en Amazon &rarr;</a>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-covers" aria-hidden="true">
+          <span class="bundle-cover">Las Raíces del Español</span>
+          <span class="bundle-cover">El Lápiz Mágico de María</span>
+          <span class="bundle-cover">Lo Bueno de Pensar y lo Bueno de No Pensar</span>
+          <span class="bundle-cover">Las Gafas de la Sabiduría</span>
+        </div>
+        <span class="bundle-age">5 a 9 años</span>
+        <h3 class="bundle-name">Aprender es aventura</h3>
+        <p class="bundle-pitch">Cuentos para despertar la curiosidad y el amor por aprender.</p>
+        <ul class="bundle-list">
+          <li>Las Raíces del Español</li>
+          <li>El Lápiz Mágico de María</li>
+          <li>Lo Bueno de Pensar y lo Bueno de No Pensar</li>
+          <li>Las Gafas de la Sabiduría</li>
+        </ul>
+        <a class="bundle-btn" href="https://www.amazon.com/s?k=tree+nunez+aprender&i=stripbooks&tag=khcxrrexvpl-20" target="_blank" rel="noopener noreferrer nofollow sponsored">Conseguir los 4 libros en Amazon &rarr;</a>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-covers" aria-hidden="true">
+          <span class="bundle-cover">El Rayo de la Amabilidad</span>
+          <span class="bundle-cover">Eri y el Valor de Ser Diferente</span>
+          <span class="bundle-cover">El Poder de las Palabras</span>
+          <span class="bundle-cover">El Pueblo de las Buenas Decisiones</span>
+        </div>
+        <span class="bundle-age">5 a 9 años</span>
+        <h3 class="bundle-name">Vivir con valores</h3>
+        <p class="bundle-pitch">Las virtudes que todo niño necesita, contadas con cariño.</p>
+        <ul class="bundle-list">
+          <li>El Rayo de la Amabilidad</li>
+          <li>Eri y el Valor de Ser Diferente</li>
+          <li>El Poder de las Palabras</li>
+          <li>El Pueblo de las Buenas Decisiones</li>
+        </ul>
+        <a class="bundle-btn" href="https://www.amazon.com/s?k=tree+nunez+valores&i=stripbooks&tag=khcxrrexvpl-20" target="_blank" rel="noopener noreferrer nofollow sponsored">Conseguir los 4 libros en Amazon &rarr;</a>
+      </div>
+    </div>
   </div>
 </section>
 
