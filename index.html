@@ -14,21 +14,58 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pequeños Grandes Valores — Libros para niños con corazón</title>
-<meta name="description" content="Libros infantiles que enseñan valores, empatía y carácter. Historias para crecer bien por dentro.">
+<title>Libros Infantiles de Valores en Español | Pequeños Grandes Valores</title>
+<meta name="description" content="Libros infantiles que enseñan valores, empatía y carácter a niños de 4-12 años. 60+ títulos en español e inglés. Disponibles en Amazon Kindle e impreso.">
+<link rel="canonical" href="https://pequenosgrandesvalores.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pequenosgrandesvalores.com/">
-<meta property="og:title" content="Pequeños Grandes Valores — Libros para niños con corazón">
-<meta property="og:description" content="Libros infantiles que enseñan valores, empatía y carácter. Historias para crecer bien por dentro.">
+<meta property="og:title" content="Libros Infantiles de Valores en Español | Pequeños Grandes Valores">
+<meta property="og:description" content="Libros infantiles que enseñan valores, empatía y carácter a niños de 4-12 años. 60+ títulos en español e inglés. Disponibles en Amazon Kindle e impreso.">
 <meta property="og:image" content="https://pequenosgrandesvalores.com/logo_pgv.png">
 <meta property="og:locale" content="es_ES">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pequeños Grandes Valores — Libros para niños con corazón">
-<meta name="twitter:description" content="Libros infantiles que enseñan valores, empatía y carácter. Historias para crecer bien por dentro.">
+<meta name="twitter:title" content="Libros Infantiles de Valores en Español | Pequeños Grandes Valores">
+<meta name="twitter:description" content="Libros infantiles que enseñan valores, empatía y carácter a niños de 4-12 años. 60+ títulos en español e inglés. Disponibles en Amazon Kindle e impreso.">
 <meta name="twitter:image" content="https://pequenosgrandesvalores.com/logo_pgv.png">
+
+<!-- Schema.org: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Pequeños Grandes Valores",
+  "alternateName": "PGV",
+  "url": "https://pequenosgrandesvalores.com",
+  "logo": "https://pequenosgrandesvalores.com/logo_pgv.png",
+  "description": "Libros infantiles que enseñan valores, empatía y carácter a niños de 4-12 años.",
+  "sameAs": [
+    "https://www.amazon.com/stores/Tree-N%C3%BA%C3%B1ez/author/B0BNN7TM5G"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hola@pequenosgrandesvalores.com",
+    "contactType": "customer service"
+  }
+}
+</script>
+<!-- Schema.org: Person (Tree Núñez) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tree Núñez",
+  "description": "Autor colectivo de Pequeños Grandes Valores. Tree Núñez es el nombre bajo el que escribe una familia.",
+  "url": "https://pequenosgrandesvalores.com",
+  "jobTitle": "Autor de libros infantiles",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Pequeños Grandes Valores"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -991,7 +1028,7 @@
   <div class="hero-inner">
     <div class="hero-text">
       <span class="hero-tag">Libros infantiles con propósito</span>
-      <h1>Historias que forman <em>grandes</em> personas</h1>
+      <h1>Libros infantiles que forman <em>grandes</em> personas</h1>
       <p>Libros para niños que enseñan valores, empatía y carácter. Porque los hábitos del corazón se construyen desde pequeños.</p>
       <div class="hero-btns">
         <a href="#catalogo" class="btn-primary">Ver catálogo</a>
@@ -1386,6 +1423,37 @@ function filtrar(tema, btn) {
 }
 
 renderLibros();
+
+// Schema.org: ItemList de libros — generado desde el array `libros` (single source of truth)
+(function () {
+  var itemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Catálogo Pequeños Grandes Valores",
+    "description": "Libros infantiles que enseñan valores, empatía y carácter.",
+    "numberOfItems": libros.length,
+    "itemListElement": libros.map(function (l, i) {
+      return {
+        "@type": "ListItem",
+        "position": i + 1,
+        "item": {
+          "@type": "Book",
+          "name": l.titulo,
+          "author": { "@type": "Person", "name": l.autor },
+          "description": l.desc,
+          "inLanguage": l.tema === "ingles" ? "en" : "es",
+          "bookFormat": l.papel ? "https://schema.org/Paperback" : "https://schema.org/EBook",
+          "publisher": { "@type": "Organization", "name": "Pequeños Grandes Valores" },
+          "url": "https://www.amazon.com/dp/" + l.kindle + "?tag=khcxrrexvpl-20"
+        }
+      };
+    })
+  };
+  var s = document.createElement("script");
+  s.type = "application/ld+json";
+  s.textContent = JSON.stringify(itemList);
+  document.head.appendChild(s);
+})();
 </script>
 </body>
 </html>
