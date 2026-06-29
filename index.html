@@ -930,14 +930,6 @@
   }
   #busqueda-catalogo:focus { border-color: var(--azul); }
   #busqueda-catalogo::placeholder { color: var(--texto-suave); }
-  .filtros-label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--texto-suave);
-    margin: 0 0 0.6rem;
-  }
   .sin-resultados {
     grid-column: 1 / -1;
     text-align: center;
@@ -1214,7 +1206,6 @@
 
     <input type="text" id="busqueda-catalogo" placeholder="Busca por título o tema..." aria-label="Buscar libros del catálogo">
 
-    <p class="filtros-label">Tema</p>
     <div class="filtros" id="filtros-tema">
       <button class="filtro-btn active" onclick="filtrarTema('todos', this)">Todos</button>
       <button class="filtro-btn" onclick="filtrarTema('emociones', this)">Emociones</button>
@@ -1222,15 +1213,6 @@
       <button class="filtro-btn" onclick="filtrarTema('aprendizaje', this)">Aprendizaje</button>
       <button class="filtro-btn" onclick="filtrarTema('ingles', this)">En inglés</button>
       <button class="filtro-btn" onclick="filtrarTema('salud', this)">Salud</button>
-    </div>
-
-    <p class="filtros-label">Edad</p>
-    <div class="filtros" id="filtros-edad">
-      <button class="filtro-btn active" onclick="filtrarEdad('todas', this)">Todas las edades</button>
-      <button class="filtro-btn" onclick="filtrarEdad('3-5', this)">3-5</button>
-      <button class="filtro-btn" onclick="filtrarEdad('5-9', this)">5-9</button>
-      <button class="filtro-btn" onclick="filtrarEdad('6-10', this)">6-10</button>
-      <button class="filtro-btn" onclick="filtrarEdad('8-12', this)">8-12</button>
     </div>
 
     <div class="libros-grid" id="libros-grid"></div>
@@ -1490,25 +1472,7 @@ const temaLabels = {
 };
 
 let temaActivo = "todos";
-let edadActiva = "todas";
 let busquedaActiva = "";
-
-// Rango de edad por defecto según tema.
-// TODO: ajustar edades específicas por libro para iteración futura (agregar campo `edad` al objeto del array).
-const edadPorTema = {
-  emociones: "6-10",
-  valores: "5-9",
-  aprendizaje: "5-9",
-  salud: "6-10",
-  ingles: "5-9"
-};
-
-function coincideEdad(l) {
-  if (edadActiva === "todas") return true;
-  // Match por bucket: el rango del libro (default por tema) debe igualar el filtro.
-  // Los buckets 3-5 y 8-12 se poblarán cuando se asigne `edad` específica por libro (ver TODO).
-  return (l.edad || edadPorTema[l.tema] || "5-9") === edadActiva;
-}
 
 function coincideBusqueda(l) {
   if (!busquedaActiva) return true;
@@ -1520,7 +1484,6 @@ function renderLibros() {
   const grid = document.getElementById("libros-grid");
   const filtrados = libros.filter(l =>
     (temaActivo === "todos" || l.tema === temaActivo) &&
-    coincideEdad(l) &&
     coincideBusqueda(l)
   );
   if (filtrados.length === 0) {
@@ -1546,7 +1509,6 @@ function setActiveBtn(groupId, btn) {
 }
 
 function filtrarTema(tema, btn) { temaActivo = tema; setActiveBtn("filtros-tema", btn); renderLibros(); }
-function filtrarEdad(edad, btn) { edadActiva = edad; setActiveBtn("filtros-edad", btn); renderLibros(); }
 
 document.getElementById("busqueda-catalogo").addEventListener("input", function (e) {
   busquedaActiva = e.target.value.trim();
