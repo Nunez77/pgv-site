@@ -879,6 +879,66 @@
     transition: background 0.2s;
   }
   .bundle-btn:hover { background: #2a4070; }
+
+  /* ===== Banner sticky Kindle (afiliado Amazon) ===== */
+  .sticky-kindle {
+    position: sticky;
+    top: 64px;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(90deg, var(--marino) 0%, #2a4070 100%);
+    color: #fff;
+    padding: 8px 2.75rem 8px 1.25rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    line-height: 1.3;
+    min-height: 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .sticky-kindle.hidden { display: none; }
+  .sticky-kindle .sk-text { color: rgba(255,255,255,0.92); }
+  .sticky-kindle .sk-accent { color: #f6c453; font-weight: 500; }
+  .sticky-kindle .sk-mobile { display: none; }
+  .sticky-kindle .sk-btn {
+    flex-shrink: 0;
+    background: #febd69;
+    color: #1c2b4a;
+    padding: 5px 16px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .sticky-kindle .sk-btn:hover { background: #f3a847; }
+  .sticky-kindle .sk-close {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.55);
+    font-size: 1.05rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 6px;
+  }
+  .sticky-kindle .sk-close:hover { color: #fff; }
+  @media (max-width: 768px) {
+    .sticky-kindle {
+      font-size: 0.8rem;
+      padding: 8px 2.25rem 8px 1rem;
+      min-height: 56px;
+      gap: 0.6rem;
+    }
+    .sticky-kindle .sk-desktop { display: none; }
+    .sticky-kindle .sk-mobile { display: inline; }
+  }
 </style>
 </head>
 <body>
@@ -895,6 +955,32 @@
     <li><a href="#nosotros">Nosotros</a></li>
   </ul>
 </nav>
+
+<!-- STICKY BANNER KINDLE (afiliado Amazon) -->
+<div class="sticky-kindle" id="sticky-kindle">
+  <span class="sk-text">
+    <span class="sk-desktop">📖 ¿Buscas un regalo que dure? El <span class="sk-accent">Kindle Paperwhite</span> es ideal para que un niño descubra el placer de leer →</span>
+    <span class="sk-mobile">📖 <span class="sk-accent">Kindle Paperwhite</span> · El regalo perfecto →</span>
+  </span>
+  <a class="sk-btn" href="https://www.amazon.com/dp/B0CFPJYX7P?tag=khcxrrexvpl-20" target="_blank" rel="noopener noreferrer nofollow sponsored">Ver en Amazon</a>
+  <button class="sk-close" id="sk-close" type="button" aria-label="Cerrar banner">✕</button>
+</div>
+<script>
+(function () {
+  var KEY = 'pgv_sticky_kindle_dismissed';
+  var WEEK = 7 * 24 * 60 * 60 * 1000;
+  var el = document.getElementById('sticky-kindle');
+  var btn = document.getElementById('sk-close');
+  try {
+    var t = localStorage.getItem(KEY);
+    if (t && (Date.now() - parseInt(t, 10)) < WEEK) { el.classList.add('hidden'); }
+  } catch (e) {}
+  btn.addEventListener('click', function () {
+    el.classList.add('hidden');
+    try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
+  });
+})();
+</script>
 
 <!-- HERO -->
 <section class="hero">
