@@ -373,8 +373,9 @@
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.25rem;
   }
+  .filtros:last-of-type { margin-bottom: 2.5rem; }
 
   .filtro-btn {
     font-family: var(--sans);
@@ -912,6 +913,72 @@
   }
   .bundle-btn:hover { background: #2a4070; }
 
+  /* ===== Buscador + labels de filtro + sin resultados ===== */
+  #busqueda-catalogo {
+    width: 100%;
+    max-width: 420px;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    border: 1px solid var(--crema-oscura);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--texto);
+    margin-bottom: 1.75rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #busqueda-catalogo:focus { border-color: var(--azul); }
+  #busqueda-catalogo::placeholder { color: var(--texto-suave); }
+  .filtros-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin: 0 0 0.6rem;
+  }
+  .sin-resultados {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    padding: 2.5rem 1rem;
+  }
+
+  /* ===== Cifras (social proof temporal) ===== */
+  .cifras {
+    background: #fff;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--crema-oscura);
+    border-bottom: 1px solid var(--crema-oscura);
+  }
+  .cifras-inner {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .cifra { display: flex; flex-direction: column; gap: 0.3rem; }
+  .cifra-num {
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--azul);
+    line-height: 1;
+  }
+  .cifra-lbl {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    letter-spacing: 0.02em;
+    max-width: 200px;
+  }
+  @media (max-width: 600px) {
+    .cifras-inner { gap: 2rem; }
+    .cifra-num { font-size: 2.1rem; }
+  }
+
   /* ===== Banner sticky Kindle (afiliado Amazon) ===== */
   .sticky-kindle {
     position: sticky;
@@ -1026,8 +1093,8 @@
       <h1>Libros infantiles que forman <em>grandes</em> personas</h1>
       <p>Libros para niños que enseñan valores, empatía y carácter. Porque los hábitos del corazón se construyen desde pequeños.</p>
       <div class="hero-btns">
-        <a href="#catalogo" class="btn-primary">Ver catálogo</a>
-        <a href="#nosotros" class="btn-secondary">Nuestra historia</a>
+        <a href="#catalogo" class="btn-primary">Ver catálogo completo →</a>
+        <a href="#bundles" class="btn-secondary">Empezar con un bundle ↓</a>
       </div>
     </div>
     <div class="hero-logo-big">
@@ -1086,6 +1153,25 @@
   </div>
 </section>
 
+<!-- CIFRAS (social proof temporal) -->
+<!-- TODO: cambiar a testimonios cuando haya 5+ reseñas reales -->
+<section class="cifras">
+  <div class="container cifras-inner">
+    <div class="cifra">
+      <span class="cifra-num">60+</span>
+      <span class="cifra-lbl">títulos publicados</span>
+    </div>
+    <div class="cifra">
+      <span class="cifra-num">2</span>
+      <span class="cifra-lbl">idiomas</span>
+    </div>
+    <div class="cifra">
+      <span class="cifra-num">15+</span>
+      <span class="cifra-lbl">países a través de Amazon</span>
+    </div>
+  </div>
+</section>
+
 <!-- CATÁLOGO -->
 <!-- SERIE DESTACADA -->
 <section id="serie">
@@ -1126,13 +1212,25 @@
     <h2 class="section-title">Catálogo completo</h2>
     <p class="section-subtitle">Todos los títulos disponibles en Amazon. Haz clic en Kindle o Impreso para ir directo a la página del libro.</p>
 
-    <div class="filtros">
-      <button class="filtro-btn active" onclick="filtrar('todos', this)">Todos</button>
-      <button class="filtro-btn" onclick="filtrar('emociones', this)">Emociones</button>
-      <button class="filtro-btn" onclick="filtrar('valores', this)">Valores</button>
-      <button class="filtro-btn" onclick="filtrar('aprendizaje', this)">Aprendizaje</button>
-      <button class="filtro-btn" onclick="filtrar('ingles', this)">En inglés</button>
-      <button class="filtro-btn" onclick="filtrar('salud', this)">Salud</button>
+    <input type="text" id="busqueda-catalogo" placeholder="Busca por título o tema..." aria-label="Buscar libros del catálogo">
+
+    <p class="filtros-label">Tema</p>
+    <div class="filtros" id="filtros-tema">
+      <button class="filtro-btn active" onclick="filtrarTema('todos', this)">Todos</button>
+      <button class="filtro-btn" onclick="filtrarTema('emociones', this)">Emociones</button>
+      <button class="filtro-btn" onclick="filtrarTema('valores', this)">Valores</button>
+      <button class="filtro-btn" onclick="filtrarTema('aprendizaje', this)">Aprendizaje</button>
+      <button class="filtro-btn" onclick="filtrarTema('ingles', this)">En inglés</button>
+      <button class="filtro-btn" onclick="filtrarTema('salud', this)">Salud</button>
+    </div>
+
+    <p class="filtros-label">Edad</p>
+    <div class="filtros" id="filtros-edad">
+      <button class="filtro-btn active" onclick="filtrarEdad('todas', this)">Todas las edades</button>
+      <button class="filtro-btn" onclick="filtrarEdad('3-5', this)">3-5</button>
+      <button class="filtro-btn" onclick="filtrarEdad('5-9', this)">5-9</button>
+      <button class="filtro-btn" onclick="filtrarEdad('6-10', this)">6-10</button>
+      <button class="filtro-btn" onclick="filtrarEdad('8-12', this)">8-12</button>
     </div>
 
     <div class="libros-grid" id="libros-grid"></div>
@@ -1392,10 +1490,43 @@ const temaLabels = {
 };
 
 let temaActivo = "todos";
+let edadActiva = "todas";
+let busquedaActiva = "";
+
+// Rango de edad por defecto según tema.
+// TODO: ajustar edades específicas por libro para iteración futura (agregar campo `edad` al objeto del array).
+const edadPorTema = {
+  emociones: "6-10",
+  valores: "5-9",
+  aprendizaje: "5-9",
+  salud: "6-10",
+  ingles: "5-9"
+};
+
+function coincideEdad(l) {
+  if (edadActiva === "todas") return true;
+  // Match por bucket: el rango del libro (default por tema) debe igualar el filtro.
+  // Los buckets 3-5 y 8-12 se poblarán cuando se asigne `edad` específica por libro (ver TODO).
+  return (l.edad || edadPorTema[l.tema] || "5-9") === edadActiva;
+}
+
+function coincideBusqueda(l) {
+  if (!busquedaActiva) return true;
+  const q = busquedaActiva.toLowerCase();
+  return l.titulo.toLowerCase().includes(q) || l.desc.toLowerCase().includes(q);
+}
 
 function renderLibros() {
   const grid = document.getElementById("libros-grid");
-  const filtrados = temaActivo === "todos" ? libros : libros.filter(l => l.tema === temaActivo);
+  const filtrados = libros.filter(l =>
+    (temaActivo === "todos" || l.tema === temaActivo) &&
+    coincideEdad(l) &&
+    coincideBusqueda(l)
+  );
+  if (filtrados.length === 0) {
+    grid.innerHTML = `<p class="sin-resultados">No encontramos libros con ese término. Prueba con otra palabra o quita los filtros.</p>`;
+    return;
+  }
   grid.innerHTML = filtrados.map(l => `
     <div class="libro-card">
       <span class="libro-tema">${temaLabels[l.tema] || l.tema}</span>
@@ -1409,12 +1540,18 @@ function renderLibros() {
   `).join("");
 }
 
-function filtrar(tema, btn) {
-  temaActivo = tema;
-  document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("active"));
+function setActiveBtn(groupId, btn) {
+  document.querySelectorAll("#" + groupId + " .filtro-btn").forEach(b => b.classList.remove("active"));
   btn.classList.add("active");
-  renderLibros();
 }
+
+function filtrarTema(tema, btn) { temaActivo = tema; setActiveBtn("filtros-tema", btn); renderLibros(); }
+function filtrarEdad(edad, btn) { edadActiva = edad; setActiveBtn("filtros-edad", btn); renderLibros(); }
+
+document.getElementById("busqueda-catalogo").addEventListener("input", function (e) {
+  busquedaActiva = e.target.value.trim();
+  renderLibros();
+});
 
 renderLibros();
 
