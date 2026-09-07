@@ -24,7 +24,7 @@
 <meta property="og:title" content="Libros Infantiles de Valores en Español | Pequeños Grandes Valores">
 <meta property="og:description" content="Libros infantiles que enseñan valores, empatía y carácter a niños de 4-12 años. 60+ títulos en español e inglés. Disponibles en Amazon Kindle e impreso.">
 <meta property="og:image" content="https://pequenosgrandesvalores.com/logo_pgv.png">
-<meta property="og:locale" content="es_ES">
+<meta property="og:locale" content="es_MX">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Libros Infantiles de Valores en Español | Pequeños Grandes Valores">
@@ -640,6 +640,8 @@
     gap: 1.5rem;
   }
 
+  .nosotros-stats .stat-card:last-child { grid-column: 1 / -1; }
+
   .stat-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
@@ -992,7 +994,6 @@
   .sticky-kindle.hidden { display: none; }
   .sticky-kindle .sk-text { color: rgba(255,255,255,0.92); }
   .sticky-kindle .sk-accent { color: #f6c453; font-weight: 500; }
-  .sticky-kindle .sk-mobile { display: none; }
   .sticky-kindle .sk-btn {
     flex-shrink: 0;
     background: #febd69;
@@ -1030,8 +1031,6 @@
     }
     .sticky-kindle .sk-text { flex: 1; min-width: 0; }
     .sticky-kindle .sk-btn { padding: 5px 12px; font-size: 0.75rem; }
-    .sticky-kindle .sk-desktop { display: none; }
-    .sticky-kindle .sk-mobile { display: inline; }
   }
 </style>
 </head>
@@ -1039,8 +1038,8 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="logo_pgv.png" alt="Pequeños Grandes Valores — Libros para niños con corazón">
+  <a href="/" class="nav-logo" aria-label="Pequeños Grandes Valores - Inicio">
+    <img src="logo_pgv.png" alt="Pequeños Grandes Valores — Libros Infantiles de Valores en Español">
   </a>
   <ul class="nav-links">
     <li><a href="#serie">Serie</a></li>
@@ -1052,10 +1051,7 @@
 
 <!-- STICKY BANNER KINDLE (afiliado Amazon) -->
 <div class="sticky-kindle" id="sticky-kindle">
-  <span class="sk-text">
-    <span class="sk-desktop">📖 ¿Buscas un regalo que dure? El <span class="sk-accent">Kindle Paperwhite</span> es ideal para que un niño descubra el placer de leer →</span>
-    <span class="sk-mobile">📖 <span class="sk-accent">Kindle Paperwhite</span> · El regalo perfecto →</span>
-  </span>
+  <span class="sk-text" data-copy-mobile='📖 <span class="sk-accent">Kindle Paperwhite</span> · El regalo perfecto →'>📖 ¿Buscas un regalo que dure? El <span class="sk-accent">Kindle Paperwhite</span> es ideal para que un niño descubra el placer de leer →</span>
   <a class="sk-btn" href="https://www.amazon.com/dp/B0CFPJYX7P?tag=khcxrrexvpl-20" target="_blank" rel="noopener noreferrer nofollow sponsored">Ver en Amazon</a>
   <button class="sk-close" id="sk-close" type="button" aria-label="Cerrar banner">✕</button>
 </div>
@@ -1073,6 +1069,20 @@
     el.classList.add('hidden');
     try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
   });
+
+  // El HTML sirve solo la copy larga; en movil la cambiamos por la corta.
+  var txt = el.querySelector('.sk-text');
+  var copyDesktop = txt.innerHTML;
+  var copyMobile = txt.getAttribute('data-copy-mobile');
+  var esMovil = null;
+  function actualizarCopy() {
+    var m = window.innerWidth < 768;
+    if (m === esMovil) return;
+    esMovil = m;
+    txt.innerHTML = m ? copyMobile : copyDesktop;
+  }
+  actualizarCopy();
+  window.addEventListener('resize', actualizarCopy);
 })();
 </script>
 
@@ -1228,10 +1238,10 @@
     <div class="bundles-grid">
       <div class="bundle-card">
         <div class="bundle-covers" aria-hidden="true">
-          <span class="bundle-cover">Pequeños Estoicos</span>
-          <span class="bundle-cover">Trucos para Cuidar tu Mente</span>
-          <span class="bundle-cover">El Monstruo de las Emociones Perdidas</span>
-          <span class="bundle-cover">¿Y Si Pudieras Apagar la Pena?</span>
+          <span class="bundle-cover"></span>
+          <span class="bundle-cover"></span>
+          <span class="bundle-cover"></span>
+          <span class="bundle-cover"></span>
         </div>
         <span class="bundle-age">6 a 10 años</span>
         <h3 class="bundle-name">Kit emocional infantil</h3>
@@ -1246,10 +1256,10 @@
       </div>
       <div class="bundle-card">
         <div class="bundle-covers" aria-hidden="true">
-          <span class="bundle-cover">Las Raíces del Español</span>
-          <span class="bundle-cover">El Lápiz Mágico de María</span>
-          <span class="bundle-cover">Lo Bueno de Pensar y lo Bueno de No Pensar</span>
-          <span class="bundle-cover">Las Gafas de la Sabiduría</span>
+          <span class="bundle-cover"></span>
+          <span class="bundle-cover"></span>
+          <span class="bundle-cover"></span>
+          <span class="bundle-cover"></span>
         </div>
         <span class="bundle-age">5 a 9 años</span>
         <h3 class="bundle-name">Aprender es aventura</h3>
@@ -1264,10 +1274,10 @@
       </div>
       <div class="bundle-card">
         <div class="bundle-covers" aria-hidden="true">
-          <span class="bundle-cover">El Rayo de la Amabilidad</span>
-          <span class="bundle-cover">Eri y el Valor de Ser Diferente</span>
-          <span class="bundle-cover">El Poder de las Palabras</span>
-          <span class="bundle-cover">El Pueblo de las Buenas Decisiones</span>
+          <span class="bundle-cover"></span>
+          <span class="bundle-cover"></span>
+          <span class="bundle-cover"></span>
+          <span class="bundle-cover"></span>
         </div>
         <span class="bundle-age">5 a 9 años</span>
         <h3 class="bundle-name">Vivir con valores</h3>
@@ -1377,10 +1387,6 @@
         <div class="stat-card">
           <div class="stat-numero">ES · EN</div>
           <div class="stat-label">Mercados</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-numero">KDP</div>
-          <div class="stat-label">Amazon Select</div>
         </div>
       </div>
     </div>
