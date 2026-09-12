@@ -931,6 +931,42 @@
     transition: border-color 0.2s;
   }
   #busqueda-catalogo:focus { border-color: var(--azul); }
+
+  /* BANNER KINDLE UNLIMITED (afiliado Amazon) */
+  .ku-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: rgba(91,123,196,0.10);
+    border: 1px solid rgba(91,123,196,0.45);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    margin: -1.25rem 0 2rem;
+  }
+  .ku-banner-titulo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--marino);
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+  }
+  .ku-banner-sub {
+    font-size: 0.92rem;
+    color: var(--texto);
+    line-height: 1.6;
+    max-width: 620px;
+  }
+  .ku-banner-nota {
+    font-size: 0.72rem;
+    color: var(--texto-suave);
+    margin-top: 0.5rem;
+  }
+  .ku-banner-btn { flex-shrink: 0; white-space: nowrap; }
+  @media (max-width: 600px) {
+    .ku-banner { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.2rem; }
+  }
   #busqueda-catalogo::placeholder { color: var(--texto-suave); }
   .sin-resultados {
     grid-column: 1 / -1;
@@ -1213,6 +1249,16 @@
     <div class="section-label">Nuestra colección</div>
     <h2 class="section-title">Catálogo completo</h2>
     <p class="section-subtitle">Todos los títulos disponibles en Amazon. Haz clic en Kindle o Impreso para ir directo a la página del libro.</p>
+
+    <!-- BANNER KINDLE UNLIMITED (afiliado Amazon) -->
+    <aside class="ku-banner" aria-label="Kindle Unlimited">
+      <div class="ku-banner-texto">
+        <p class="ku-banner-titulo">Lee todos estos libros gratis el primer mes</p>
+        <p class="ku-banner-sub">Con Kindle Unlimited tienes acceso a millones de libros por una suscripción mensual. El primer mes es gratis.</p>
+        <p class="ku-banner-nota">Prueba gratuita disponible para clientes elegibles. Enlace de afiliado Amazon.</p>
+      </div>
+      <a class="libro-link libro-link-kindle ku-banner-btn" href="https://www.amazon.com/kindle-dbs/hz/subscribe/ku?tag=khcxrrexvpl-20" target="_blank" rel="noopener noreferrer nofollow sponsored">Probar Kindle Unlimited gratis</a>
+    </aside>
 
     <input type="text" id="busqueda-catalogo" placeholder="Busca por título o tema..." aria-label="Buscar libros del catálogo">
 
