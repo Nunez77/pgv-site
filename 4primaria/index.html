@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Expedición</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: juguetón y cálido, para una niña de 10 años que estudia en iPad.
+   IDEA: un mapa de expedición en el Caribe, cada isla es una materia.
+   PICTURE: el mar con cuatro islas dibujadas que se tocan para jugar.
+   COLOUR and TYPE: turquesa de mar, arena y coral. Baloo 2 para títulos, Nunito para texto.
+   LAYOUT: mapa arriba a todo lo ancho, juego en una tarjeta grande centrada, botones de 64px. */
+:root{color-scheme:light dark;
+--sea:light-dark(#0aa3b5,#0b4f6c);--sea2:light-dark(#08889a,#073a52);
+--sand:light-dark(#f6e6c4,#e9d3a4);--ink:light-dark(#173042,#eaf6f8);
+--card:light-dark(#fffdf7,#12293a);--coral:#ff6b5a;--leaf:#2fb36b;--sun:#ffc93c;--bg:light-dark(#e6f7f9,#06202e)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 Nunito,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Baloo 2",Nunito,sans-serif;line-height:1.05;margin:0;text-wrap:balance}
+header{background:var(--sea);color:#fff;padding:18px max(4vw,16px) 0}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;max-width:1100px;margin:auto}
+h1{font-size:clamp(32px,6vw,48px)}
+.stars{background:rgba(255,255,255,.18);border-radius:999px;padding:8px 16px;font-weight:800;font-size:18px;white-space:nowrap}
+.map{display:block;width:100%;max-width:1100px;margin:auto;height:auto}
+.isle{cursor:pointer}.isle:focus{outline:none}.isle:focus-visible .ring{stroke:var(--sun);stroke-width:6}
+.isle text{font:800 26px "Baloo 2",sans-serif;fill:#173042}
+.isle .sub{font:700 17px Nunito,sans-serif;fill:#3c5566}
+.bob{animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+main{max-width:820px;margin:auto;padding:24px 16px 48px}
+.card{background:var(--card);border-radius:28px;padding:clamp(20px,4vw,36px);box-shadow:0 10px 30px rgba(8,60,80,.15)}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.pill{font-weight:800;font-size:15px;background:var(--sand);color:#173042;border-radius:999px;padding:6px 14px}
+.bar{height:12px;background:light-dark(#dcefF2,#0d3a4f);border-radius:9px;margin:16px 0 22px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--leaf);border-radius:9px;transition:width .4s}
+.q{font-size:clamp(24px,4.4vw,34px);font-family:"Baloo 2",sans-serif;font-weight:800;margin:4px 0 22px}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:520px){.opts{grid-template-columns:minmax(0,1fr)}}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+.opt{min-height:72px;border-radius:20px;background:var(--sand);color:#173042;font-size:22px;font-weight:800;padding:12px 16px;box-shadow:0 5px 0 #d9c393;transition:transform .1s}
+.opt:active{transform:translateY(4px);box-shadow:0 1px 0 #d9c393}
+.opt:focus-visible,.big:focus-visible{outline:4px solid var(--sun);outline-offset:3px}
+.opt.no{background:#ffd9d4;box-shadow:0 5px 0 #f0a89e;opacity:.7}
+.opt.ok{background:#c8f2d8;box-shadow:0 5px 0 #84d6a5}
+.msg{min-height:56px;margin-top:20px;border-radius:18px;padding:14px 18px;font-weight:700;display:none}
+.msg.hint{display:block;background:light-dark(#fff3cf,#4a3c12)}
+.msg.good{display:block;background:light-dark(#dff7e8,#123f27)}
+.msg.learn{display:block;background:light-dark(#e3f0ff,#132f4f)}
+.big{min-height:64px;border-radius:20px;padding:12px 26px;font-size:20px;font-weight:800;background:var(--coral);color:#fff;box-shadow:0 5px 0 #c94b3d}
+.big.alt{background:var(--sea2);box-shadow:0 5px 0 #05586a}
+.end{text-align:center}.end .medal{font-size:72px;line-height:1;margin:8px 0;color:var(--sun);letter-spacing:6px}
+.lead{font-size:18px;max-width:60ch}
+.worlds{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px}
+.world{background:var(--sand);color:#173042;border-radius:20px;padding:14px 16px;text-align:left;min-height:84px;font-weight:800;box-shadow:0 5px 0 #d9c393}
+.world small{display:block;font-weight:700;color:#4b6475}
+.note{font-size:14px;opacity:.75;margin-top:18px}
+.name{width:100%;font:800 26px Nunito,sans-serif;padding:14px 18px;border-radius:18px;border:3px solid var(--sea);background:var(--card);color:var(--ink);margin:16px 0 20px}
+.name:focus{outline:4px solid var(--sun);outline-offset:2px}
+.link{background:none;color:var(--sea2);font-weight:800;text-decoration:underline;padding:10px 0;min-height:44px}
+@media(prefers-reduced-motion:reduce){.bob{animation:none}.bar i{transition:none}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top"><h1 id="ttl">Expedición</h1><span class="stars" id="total">0 estrellas</span></div>
+ <svg class="map" viewBox="0 0 1100 330" role="group" aria-label="Mapa de islas">
+  <defs>
+   <radialGradient id="g1" cx=".4" cy=".35"><stop offset="0" stop-color="#ffe9b8"/><stop offset="1" stop-color="#e8c98a"/></radialGradient>
+   <g id="palm"><path d="M0 0 q6 -40 2 -70" stroke="#7a5230" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M2 -70 q-30 -10 -48 8 q22 -4 48 -8 q-18 -26 -44 -20 q24 4 44 20 q10 -30 40 -32 q-20 14 -40 32 q34 -10 50 10 q-26 -6 -50 -10" fill="#2fb36b"/></g>
+  </defs>
+  <path d="M0 260 q140 -30 280 0 t280 0 t280 0 t280 0 v70 h-1100z" fill="#08889a" opacity=".55"/>
+  <g fill="#fff" opacity=".35"><path d="M60 70 q20 -10 40 0"/><path d="M520 40 q20 -10 40 0"/><path d="M960 90 q20 -10 40 0"/></g>
+  <g stroke="#fff" stroke-width="3" fill="none" opacity=".45" stroke-linecap="round"><path d="M70 72 q15 -8 30 0"/><path d="M520 42 q15 -8 30 0"/><path d="M965 92 q15 -8 30 0"/><path d="M330 300 q15 -8 30 0"/><path d="M760 305 q15 -8 30 0"/></g>
+  <g id="isles"></g>
+ </svg>
+</header>
+<main><div class="card" id="stage"></div>
+<p class="note">Preguntas para 4° de primaria. Si algo no coincide con lo que vio en clase, gana su maestra o maestro.</p></main>
+
+<script>
+{
+const $=s=>document.querySelector(s);
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+const pick=a=>a[rnd(0,a.length-1)];
+const store={get(){try{return JSON.parse(localStorage.getItem('expedicionCami')||'{}')}catch(e){return{}}},
+ set(v){try{localStorage.setItem('expedicionCami',JSON.stringify(v))}catch(e){}}};
+let all=store.get();if(!all.players)all={players:{}};
+let player=all.last||'';let best=player?(all.players[player]||{}):{};
+const save=()=>{all.players[player]=best;all.last=player;store.set(all)};
+function setTitle(){$('#ttl').textContent=player?`Expedición ${player}`:'Expedición';document.title=$('#ttl').textContent}
+function askName(){
+ $('#stage').innerHTML=`<form id="nf"><h2 style="font-size:clamp(28px,5vw,40px)">¡Hola, explorador o exploradora!</h2>
+ <label for="nm" class="lead" style="display:block;margin-top:10px">Escribe tu nombre para empezar la expedición:</label>
+ <input class="name" id="nm" maxlength="20" autocomplete="off" autocapitalize="words" placeholder="Tu nombre" value="${player}">
+ <button class="big" type="submit">¡Vámonos!</button></form>`;
+ $('#nm').focus();
+}
+
+/* Matemáticas: se generan solas, nunca se repiten igual */
+function uniq(right,cands,f){const s=new Set([right]);for(const c of cands)if(c>0&&s.size<4)s.add(c);let k=1;while(s.size<4)s.add(right+k++);return shuffle([...s]).map(f)}
+function nums(right,make){const s=new Set([right]);let t=0;while(s.size<4&&t<50){const v=make();if(v>0)s.add(v);t++}let k=1;while(s.size<4)s.add(right+k++);return shuffle([...s]).map(String)}
+const mathGen=[
+ ()=>{const a=rnd(12,48),b=rnd(3,9),r=a*b;return{q:`${a} × ${b} = ?`,a:String(r),o:nums(r,()=>r+pick([-b,b,-10,10,-1,1])),h:`Parte el ${a} en decenas y unidades: ${Math.floor(a/10)*10} × ${b} y luego ${a%10} × ${b}. Después súmalos.`,e:`${Math.floor(a/10)*10} × ${b} = ${Math.floor(a/10)*10*b} y ${a%10} × ${b} = ${(a%10)*b}. Juntos: ${r}.`}},
+ ()=>{const b=rnd(3,9),r=rnd(4,15),a=b*r;return{q:`${a} ÷ ${b} = ?`,a:String(r),o:nums(r,()=>r+pick([-2,-1,1,2])),h:`Piensa: ¿qué número por ${b} da ${a}? Usa la tabla del ${b}.`,e:`${r} × ${b} = ${a}, por eso ${a} ÷ ${b} = ${r}.`}},
+ ()=>{const n=rnd(1000,9999),p=pick([[1000,'millares'],[100,'centenas'],[10,'decenas']]),d=Math.floor(n/p[0])%10;return{q:`En ${n.toLocaleString('es-MX')}, ¿qué dígito está en las ${p[1]}?`,a:String(d),o:(()=>{const s=new Set([d]);for(const c of [...String(n).split('').map(Number),(d+1)%10,(d+3)%10,(d+5)%10]){if(s.size<4)s.add(c)}return shuffle([...s]).map(String)})(),h:`Cuenta desde la derecha: unidades, decenas, centenas, millares.`,e:`${n.toLocaleString('es-MX')}: el ${d} vale ${d*p[0]}, está en las ${p[1]}.`}},
+ ()=>{const d=pick([2,3,4,5,6,8]),n=rnd(1,d-1),k=rnd(2,4);const r=`${n*k}/${d*k}`;return{q:`¿Qué fracción es igual a ${n}/${d}?`,a:r,o:shuffle([r,`${n+k}/${d+k}`,`${n*k}/${d}`,`${n}/${d*k}`]),h:`Para que una fracción valga lo mismo, multiplica arriba y abajo por el mismo número.`,e:`${n} × ${k} = ${n*k} y ${d} × ${k} = ${d*k}. Por eso ${n}/${d} = ${r}.`}},
+ ()=>{const l=rnd(3,12),w=rnd(2,9),r=2*(l+w);return{q:`Un rectángulo mide ${l} cm de largo y ${w} cm de ancho. ¿Cuál es su perímetro?`,a:`${r} cm`,o:uniq(r,[l*w,l+w,r+2,r-2],v=>`${v} cm`),h:`El perímetro es la orilla completa: suma los 4 lados.`,e:`${l} + ${w} + ${l} + ${w} = ${r} cm.`}},
+ ()=>{const p=rnd(12,35),c=rnd(3,6),r=p*c;return{q:`En la cooperativa cada quesadilla cuesta $${p}. ¿Cuánto pagas por ${c}?`,a:`$${r}`,o:uniq(r,[r+p,r-p,p+c,r+10],v=>`$${v}`),h:`Es una multiplicación: ${p} veces ${c}, o ${c} veces ${p}.`,e:`${p} × ${c} = ${r}.`}}
+];
+
+/* Banco fijo: Science en inglés, Español y Quintana Roo */
+const bank={
+ science:[
+  ['What does the heart pump around your body?',['Blood','Air','Water','Food'],'It is red and travels inside your blood vessels.','The heart pumps blood all around the body.'],
+  ['Arteries carry blood...',['Away from the heart','Back to the heart','To the stomach','Only to the brain'],'A for Arteries, A for Away.','Arteries carry blood away from the heart. Veins bring it back.'],
+  ['Veins carry blood...',['Back to the heart','Away from the heart','To the eyes only','Out of the body'],'Think of the opposite of arteries.','Veins bring blood back to the heart.'],
+  ['The heart is a...',['Muscle','Bone','Lung','Vein'],'It works all day like your legs when you run.','The heart is a muscle that never stops working.'],
+  ['Which organ gives oxygen to your blood?',['Lungs','Heart','Stomach','Skin'],'You use it every time you breathe in.','The lungs put oxygen into the blood.'],
+  ['Which sense uses your tongue?',['Taste','Smell','Touch','Hearing'],'You use it when you try a snack.','The tongue helps you taste: sweet, salty, sour and bitter.'],
+  ['Which sense uses your nose?',['Smell','Taste','Sight','Hearing'],'Think of a flower or fresh bread.','The nose is for smelling.'],
+  ['How many senses do we have?',['5','3','7','10'],'Sight, hearing, smell, taste and...','We have 5 senses: sight, hearing, smell, taste and touch.'],
+  ['On the eat well plate, what should be a big part of every meal?',['Fruits and vegetables','Candy','Soda','Chips'],'They are colorful and full of vitamins.','Fruits and vegetables are the biggest part of a healthy plate.'],
+  ['Which one is a healthy snack?',['An apple','Cookies','Soda','Candy'],'It grows on a tree.','An apple is a healthy snack.']
+ ],
+ espanol:[
+  ['¿Cuál palabra es un adjetivo?',['brillante','correr','mesa','ayer'],'El adjetivo dice cómo es algo.','"Brillante" dice cómo es algo, por eso es adjetivo.'],
+  ['¿Cuál palabra es un verbo?',['bailar','bonito','escuela','rápido'],'El verbo es una acción, algo que se hace.','"Bailar" es una acción: es un verbo.'],
+  ['¿Cuál palabra es un sustantivo?',['espada','saltar','alegre','muy'],'El sustantivo nombra personas, animales o cosas.','"Espada" nombra una cosa: es sustantivo.'],
+  ['Sinónimo de "contento":',['feliz','triste','enojado','cansado'],'Sinónimo quiere decir que significa lo mismo.','"Contento" y "feliz" significan lo mismo.'],
+  ['Antónimo de "valiente":',['miedoso','fuerte','alegre','grande'],'Antónimo es lo contrario.','Lo contrario de valiente es miedoso.'],
+  ['¿Cuál está bien escrita?',['canción','cansión','canzión','cansion'],'Piensa en "cantar": se escribe con c.','Se escribe canción, con c y con acento en la o.'],
+  ['¿Qué signo va al inicio de una pregunta en español?',['¿','?','¡','.'],'En español la pregunta se abre y se cierra.','En español las preguntas empiezan con ¿ y terminan con ?.'],
+  ['En "La niña ensaya la obra", ¿quién hace la acción?',['La niña','La obra','Ensaya','Nadie'],'Pregúntate: ¿quién ensaya?','La niña es quien ensaya: es el sujeto.'],
+  ['¿Cuál es una palabra aguda?',['corazón','mesa','árbol','lápiz'],'Las agudas llevan la fuerza en la última sílaba.','co-ra-ZÓN lleva la fuerza al final: es aguda.'],
+  ['Plural de "pez":',['peces','pezes','pezs','pecez'],'Cuando termina en z, la z cambia a c.','Pez cambia la z por c: peces.']
+ ],
+ qroo:[
+  ['¿Cuál es la capital de Quintana Roo?',['Chetumal','Cancún','Playa del Carmen','Cozumel'],'Está en el sur, junto a la frontera con Belice.','La capital es Chetumal.'],
+  ['¿Con qué país tiene frontera Quintana Roo?',['Belice','Guatemala','Estados Unidos','Cuba'],'Es un país pequeño al sur, donde también se habla inglés.','Quintana Roo tiene frontera con Belice.'],
+  ['¿Con qué estados colinda Quintana Roo?',['Yucatán y Campeche','Chiapas y Tabasco','Oaxaca y Veracruz','Sonora y Chihuahua'],'Los tres estados forman la península de Yucatán.','Colinda con Yucatán y Campeche.'],
+  ['¿En qué año Quintana Roo se convirtió en estado?',['1974','1810','1910','2000'],'Es uno de los estados más jóvenes de México.','Quintana Roo es estado desde 1974.'],
+  ['¿Qué mar baña las costas de Quintana Roo?',['El mar Caribe','El océano Pacífico','El mar de Cortés','El mar Mediterráneo'],'Es el mar turquesa que ves en Playa.','Quintana Roo está en el mar Caribe.'],
+  ['¿Qué cultura antigua construyó Tulum y Cobá?',['Los mayas','Los aztecas','Los olmecas','Los incas'],'Todavía hoy se habla su lengua en la península.','Tulum y Cobá son ciudades mayas.'],
+  ['¿Cómo se llama la laguna de los siete colores?',['Bacalar','Nichupté','Chankanaab','Cobá'],'También es el nombre de un municipio y un pueblo mágico.','Es la laguna de Bacalar.'],
+  ['¿Qué es un cenote?',['Un pozo natural de agua','Una montaña','Un tipo de pirámide','Un río grande'],'Te puedes meter a nadar en uno.','Un cenote es un pozo natural de agua dulce.'],
+  ['¿Qué reserva de la biosfera de Quintana Roo es Patrimonio de la Humanidad?',['Sian Ka\'an','Xcaret','Holbox','Calakmul'],'Su nombre en maya significa "origen del cielo".','Sian Ka\'an es Patrimonio de la Humanidad.'],
+  ['¿Qué hay frente a las costas de Quintana Roo que protege la playa?',['Un arrecife de coral','Un volcán','Un desierto','Un glaciar'],'Está lleno de peces de colores.','El arrecife de coral protege la costa y es casa de muchos peces.']
+ ]
+};
+const fromBank=k=>bank[k].map(([q,o,h,e])=>({q,a:o[0],o:shuffle(o),h,e}));
+
+const worlds=[
+ {id:'mate',name:'Isla Números',sub:'Matemáticas',color:'#ffc93c',x:150,y:150,make:()=>Array.from({length:8},(_,i)=>mathGen[i%mathGen.length]()).sort(()=>Math.random()-.5)},
+ {id:'science',name:'Science Island',sub:'English · Science',color:'#ff6b5a',x:420,y:205,make:()=>shuffle(fromBank('science')).slice(0,8)},
+ {id:'espanol',name:'Isla Palabras',sub:'Español',color:'#9b7bff',x:690,y:140,make:()=>shuffle(fromBank('espanol')).slice(0,8)},
+ {id:'qroo',name:'Isla Q. Roo',sub:'Mi entidad',color:'#2fb36b',x:950,y:200,make:()=>shuffle(fromBank('qroo')).slice(0,8)}
+];
+
+function drawMap(){
+ $('#isles').innerHTML=worlds.map((w,i)=>`<g class="isle" tabindex="0" role="button" aria-label="${w.name}, ${w.sub}" data-w="${w.id}">
+  <g class="bob" style="animation-delay:-${i}s">
+   <ellipse cx="${w.x}" cy="${w.y+42}" rx="118" ry="22" fill="#05586a" opacity=".35"/>
+   <ellipse class="ring" cx="${w.x}" cy="${w.y+20}" rx="112" ry="40" fill="url(#g1)" stroke="${w.color}" stroke-width="5"/>
+   <use href="#palm" x="${w.x+60}" y="${w.y+12}"/>
+   <circle cx="${w.x-60}" cy="${w.y+8}" r="16" fill="${w.color}"/>
+   <text x="${w.x-30}" y="${w.y+16}" text-anchor="start">${'★'.repeat(best[w.id]||0)}${'☆'.repeat(3-(best[w.id]||0))}</text>
+   <text x="${w.x}" y="${w.y-38}" text-anchor="middle" style="fill:#fff">${w.name}</text>
+   <text class="sub" x="${w.x}" y="${w.y-16}" text-anchor="middle" style="fill:#e8fbff">${w.sub}</text>
+  </g></g>`).join('');
+ const t=worlds.reduce((s,w)=>s+(best[w.id]||0),0);
+ $('#total').textContent=`${t} de 12 estrellas`;
+}
+
+let game=null;
+function home(){
+ game=null;if(!player)return askName();
+ $('#stage').innerHTML=`<h2 style="font-size:clamp(28px,5vw,40px)">${player}, ¿a qué isla vamos hoy?</h2>
+ <p class="lead">Toca una isla del mapa. Cada viaje son 8 preguntas. Si te equivocas, te doy una pista y lo intentas otra vez. Gana 3 estrellas en cada isla.</p>
+ <div class="worlds">${worlds.map(w=>`<button class="world" data-w="${w.id}" style="border-left:10px solid ${w.color}">${w.name}<small>${w.sub} · ${'★'.repeat(best[w.id]||0)||'sin estrellas'}</small></button>`).join('')}
+ <button class="world" data-w="mix" style="border-left:10px solid #173042">Reto mezclado<small>Un poco de todo</small></button></div>
+ <button class="link" id="chg">No soy ${player}, cambiar nombre</button>`;
+}
+function start(id){
+ const qs=id==='mix'?shuffle(worlds.flatMap(w=>w.make().slice(0,2))):worlds.find(w=>w.id===id).make();
+ game={id,qs,i:0,first:0,tries:0,done:false};ask();
+}
+function ask(){
+ const g=game,q=g.qs[g.i],w=worlds.find(x=>x.id===g.id);
+ g.tries=0;g.done=false;
+ $('#stage').innerHTML=`<div class="row"><span class="pill">${w?w.name:'Reto mezclado'}</span><span class="pill">Pregunta ${g.i+1} de ${g.qs.length}</span></div>
+ <div class="bar"><i style="width:${g.i/g.qs.length*100}%"></i></div>
+ <p class="q">${q.q}</p>
+ <div class="opts">${q.o.map(o=>`<button class="opt">${o}</button>`).join('')}</div>
+ <div class="msg" id="msg" aria-live="polite"></div>
+ <div class="row" style="margin-top:18px"><button class="big alt" id="out">Salir al mapa</button><button class="big" id="next" hidden>Siguiente</button></div>`;
+}
+function answer(btn){
+ const g=game;if(!g||g.done||btn.classList.contains('no'))return;
+ const q=g.qs[g.i],m=$('#msg');
+ if(btn.textContent===q.a){
+  btn.classList.add('ok');g.done=true;if(g.tries===0)g.first++;
+  m.className='msg good';m.textContent=g.tries===0?pick(['¡Exacto!',`¡Muy bien, ${player}!`,'¡Eso!','¡Lo sabías!'])+' '+q.e:'¡Ahora sí! '+q.e;
+  $('#next').hidden=false;$('#next').focus();
+ }else{
+  btn.classList.add('no');g.tries++;
+  if(g.tries===1){m.className='msg hint';m.textContent='Pista: '+q.h}
+  else{g.done=true;document.querySelectorAll('.opt').forEach(b=>{if(b.textContent===q.a)b.classList.add('ok')});
+   m.className='msg learn';m.textContent='La respuesta es '+q.a+'. '+q.e;$('#next').hidden=false}
+ }
+}
+function next(){
+ const g=game;g.i++;
+ if(g.i<g.qs.length)return ask();
+ const n=g.qs.length,s=g.first>=n-1?3:g.first>=n*.6?2:g.first>=n*.3?1:0;
+ if(g.id!=='mix'&&s>(best[g.id]||0)){best[g.id]=s;save();drawMap()}
+ $('#stage').innerHTML=`<div class="end"><h2 style="font-size:40px">${s===3?'¡Isla conquistada!':s>0?'¡Buen viaje!':'¡Sigue explorando!'}</h2>
+ <div class="medal" aria-label="${s} estrellas">${'★'.repeat(s)}${'☆'.repeat(3-s)}</div>
+ <p class="lead" style="margin:auto">Acertaste ${g.first} de ${n} a la primera.${s<3?' Juega otra vez y las preguntas cambian.':''}</p>
+ <div class="row" style="justify-content:center;margin-top:22px"><button class="big alt" id="out">Volver al mapa</button><button class="big" id="again">Jugar otra vez</button></div></div>`;
+}
+document.addEventListener('click',e=>{
+ const t=e.target.closest('button,.isle');if(!t)return;
+ if(t.dataset.w){if(!player)return askName();start(t.dataset.w)}
+ else if(t.classList.contains('opt'))answer(t);
+ else if(t.id==='next')next();
+ else if(t.id==='out')home();
+ else if(t.id==='again')start(game.id);
+ else if(t.id==='chg'){player='';best={};setTitle();drawMap();askName()}
+});
+document.addEventListener('keydown',e=>{const t=e.target.closest&&e.target.closest('.isle');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();start(t.dataset.w)}});
+document.addEventListener('submit',e=>{e.preventDefault();const v=$('#nm').value.trim().replace(/[<>&"]/g,'').slice(0,20);if(!v){$('#nm').focus();return}
+ player=v.charAt(0).toUpperCase()+v.slice(1);best=all.players[player]||{};save();setTitle();drawMap();home()});
+setTitle();drawMap();home();
+}
+</script>
+</body>
+</html>
