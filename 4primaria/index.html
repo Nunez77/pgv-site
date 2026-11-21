@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
 <title>Expedición</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
@@ -87,8 +88,8 @@ const $=s=>document.querySelector(s);
 const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
 const pick=a=>a[rnd(0,a.length-1)];
-const store={get(){try{return JSON.parse(localStorage.getItem('expedicionCami')||'{}')}catch(e){return{}}},
- set(v){try{localStorage.setItem('expedicionCami',JSON.stringify(v))}catch(e){}}};
+const store={get(){try{return JSON.parse(localStorage.getItem('expedicion4p')||'{}')}catch(e){return{}}},
+ set(v){try{localStorage.setItem('expedicion4p',JSON.stringify(v))}catch(e){}}};
 let all=store.get();if(!all.players)all={players:{}};
 let player=all.last||'';let best=player?(all.players[player]||{}):{};
 const save=()=>{all.players[player]=best;all.last=player;store.set(all)};
